@@ -1,0 +1,289 @@
+---
+title: "Knowledge-enhanced biomarker discovery"
+subtitle: "Trifels Spring School 2025: AI in Bioinformatics"
+author: David Selby
+institute: DFKI
+date: 2025-03-24
+date-format: Do MMMM YYYY
+from: markdown+emoji
+title-slide-attributes:
+    data-background-image: images/burg_trifels2.jpg
+    data-background-size: contain
+    data-background-opacity: "0.5"
+    data-background-color: black
+format:
+    revealjs:
+        slide-number: true #c/t
+        logo: images/dfki_black.png
+        theme: default
+        navigation-mode: linear
+        #chalkboard: true # drawing with 'c' and 'b' hotkeys
+        toc: true
+        toc-depth: 1
+        toc-title: Agenda
+        transition: fade
+        background-transition: fade
+        embed-resources: true # disable for editing
+    beamer:
+        theme: metropolis
+        slide-level: 2
+        header-includes: |
+            \newenvironment{figure*}%
+            {\begin{figure}}
+            {\end{figure}}
+            \newenvironment{table*}%
+            {\begin{table}}
+            {\end{table}}
+engine: knitr
+---
+
+# 1. Introduction {background-image="images/annweiler.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
+
+```{css, echo=FALSE}
+/* Style the table of contents */
+#TOC ul li {
+    list-style-type: none;
+}
+#TOC a {
+    font-size: larger;
+    color: black;
+    font-weight: bold;
+}
+```
+
+## David Selby
+
+::::: columns
+::: column
+![](images/david.jpg)
+
+**Senior Researcher** 🇩🇪 🇬🇧\
+Data Science & its Applications\
+[david.selby\@dfki.de](mailto:david.selby@dfki.de)
+:::
+
+::: column
+![](images/dfki_logo_full.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/RPTU_Logo.svg/640px-RPTU_Logo.svg.png)
+:::
+:::::
+
+##  {background-image="images/annweiler.jpg" background-size="cover" background-color="black"}
+
+::: footer
+&copy; David Selby
+:::
+
+##  {background-image="images/burg_trifels1.jpg" background-size="cover" background-color="black"}
+
+::: footer
+&copy; David Selby
+:::
+
+##  {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black"}
+
+::: footer
+&copy; David Selby
+:::
+
+##  {background-image="images/burg_aussicht.jpg" background-size="cover" background-color="black"}
+
+::: footer
+&copy; David Selby
+:::
+
+## Workshop objectives
+
+By the end of this session, we aim to:
+
+-   **Understand** the role of prior knowledge in biomarker discovery
+-   **Learn** methods to integrate biological context into multi-omics workflows
+-   **Explore** tools and case studies for knowledge-guided analysis
+-   **Discuss** challenges in knowledge-guided AI for biomedicine
+
+## {background-image="https://www.researchgate.net/publication/346929297/figure/fig1/AS:11431281241521883@1715131118932/The-complexity-of-multi-omics-merger-of-omics-driven-biology-data-science-informatics_W640.jpg" background-size="contain"}
+
+:::footer
+Krassowski at al. (2020). State of the Field in Multi-Omics Research. _Frontiers in Genetics._ doi:[10.3389/fgene.2020.610798](https://doi.org/10.3389/fgene.2020.610798)
+:::
+
+## Motivation
+
+**Key challenges in biomarker discovery:** 
+
+- High dimensionality ($p \gg n$)
+- Heterogeneous, multimodal data
+- Black-box AI models
+- Validation in diverse cohorts
+- FAIRness of data, methods and tools
+
+::: {.notes}
+- Dimensionality reduction
+- Integrating different molecular data, as well as non-molecular clinical data and imaging
+- Explainability, interpretability
+- Heavy reliance on TCGA and common tools may not generalize
+- FAIR = Findable, Accessible, Interoperable, Reusable
+:::
+
+## What is multi-omics biomarker discovery?
+
+-   Combines genomics, transcriptomics, proteomics, metabolomics, ...
+-   Identify robust signatures for disease diagnosis, prognosis or treatment
+
+::: aside
+
+Signatures/biomarkers
+
+:   (Sets of) features predictive of a biological outcome
+:::
+
+## curATime project
+
+A bit of motivation
+
+## What is multi-omics?
+
+[filler]
+
+# 3. Prior knowledge {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+
+## Approaches
+
+1. Knowledge graphs
+2. Regularization
+3. Biologically-informed neural networks
+
+# 2. Multi-omics integration {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+
+## Single-omics
+
+Classical techniques
+
+Regularized regression
+
+Batch effect correction
+
+## Multi-omics datasets
+
+::::: columns
+::: column
+![](images/multiomics.png)
+:::
+
+::: column
+-   Tabular data
+-   High-dimensional
+-   Small samples
+-   **Multimodal structure**
+:::
+:::::
+
+## Multimodal fusion
+
+When should we combine modalities?
+
+**Early** --- easier, but may lose modality-specific information, worse performance[^1]
+
+[^1]: Hauptmann, T., Kramer, S. A fair experimental comparison of neural network architectures for latent representations of multi-omics for drug response prediction. *BMC Bioinformatics* 24, 45 (2023). doi:[10.1186/s12859-023-05166-7](https://doi.org/10.1186/s12859-023-05166-7)
+
+**Intermediate** --- modality-specific layers, but harder to train
+
+**Late** --- combine modalities at the end, but may not capture interactions
+
+## Late fusion (MOLI)
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/3f5e/6612815/2f27faef728d/btz318f1.jpg)
+
+:::footer
+Sharifi-Noghabi et al. _Bioinformatics_. 2019. doi: [10.1093/bioinformatics/btz318](https://doi.org/10.1093/bioinformatics/btz318)
+:::
+
+::: {.notes}
+Hello, world
+:::
+
+## Model explanations
+
+![Can we call hidden nodes 'biomarkers'?](images/nn.png)
+
+## Model explanations
+
+Input-level explanations:
+
+-   $p$-values, features importance
+-   DeepLIFT
+-   SHAP
+-   LIME
+
+→ *post-hoc* gene-set enrichment analysis (GSEA) or "pathway analysis"
+
+![](https://reactome.org/templates/favourite/images/logo/logo.png)   <!--![](https://upload.wikimedia.org/wikipedia/en/8/80/KEGG_database_logo.gif)-->
+
+## Gene set enrichment analysis {.smaller}
+
+1.  Set of genes $G = \{g_1, g_2, \dots, g_N\}$. Order by ranking metric $S(g_i)$ (e.g. *t*-statistic)
+
+2.  Compute **enrichment score** using running sum statistics, or **overrepresentation score** with hypergeometric test: $$
+    P(X = x) = \frac{\binom{M}{x} \binom{N-M}{n-x}}{\binom{N}{n}}
+    $$ with $p$-value $$
+    p = \sum_{i=x}^{\min(M, K)} P(X = i).
+    $$
+
+## Multi-omics integration {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+::: {data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;"}
+:::
+
+## Multi-omics integration {auto-animate="true" auto-animate-easing="ease-in-out"}
+
+# 4. Visible neural networks {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+
+---
+
+![](images/binn_natrevgen.png){width=80%}
+
+::: footer
+Selby, D.A. et al. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
+:::
+
+## Feedforward neural network
+
+![](images/nn.png)
+
+# 5. Practical {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+
+# 6. Discussion {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+
+## Worksheet {.smaller}
+
+![](images/qr_code.png)
+
+Colab notebook and slides: [github.com/datasciapps/trifels2025](https://github.com/datasciapps/trifels2025)
+
+## The `binn` package
+
+\[QR code to Colab\]
+
+short URL
+
+------------------------------------------------------------------------
+
+# Thank you! {.unlisted}
+
+::::: columns
+::: {.column width="70%"}
+[github.com/datasciapps/trifels2025](https://github.com/datasciapps/trifels2025)\
+**Contact:** [david.selby\@dfki.de](mailto:david.selby@dfki.de?Subject=Trifels%20Spring%20School)
+:::
+
+::: {.column width="30%"}
+![](images/qr_code.png)
+:::
+:::::
+
+ 
+
+::: {style="font-size: smaller;"}
+**Further reading**:\
+Selby, D.A. et al. Beyond the black box with biologically informed neural networks. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
+:::
