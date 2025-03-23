@@ -22,12 +22,13 @@ format:
         toc-depth: 1
         toc-title: Agenda
         number-sections: true
-        number-depth: 2 # subsection numbering
+        number-depth: 1 # subsection numbering
         transition: fade
         background-transition: fade
         embed-resources: false # true is slower but self-contained
         mermaid:
             theme: forest
+        hash-type: number
 engine: knitr
 ---
 
@@ -47,7 +48,7 @@ engine: knitr
 
 ## David Selby {.unnumbered}
 
-::::: columns
+:::: columns
 ::: column
 ![](images/david.jpg)
 
@@ -59,7 +60,7 @@ Data Science & its Applications\
 ::: column
 ![](images/dfki_logo_full.png) ![](images/rptu_logo.png)
 :::
-:::::
+::::
 
 ##  {.unnumbered background-image="images/annweiler.jpg" background-size="cover" background-color="black"}
 
@@ -102,27 +103,27 @@ By the end of this session, we aim to:
 
 . . .
 
-:::::: columns
-::: {.column width="30%"}
+:::::: {.columns layout="[0.3, 0.3, 0.3]"}
+::: column
 {{<iconify twemoji:brain >}}
 
 Why? Where? How?
 :::
 
-::: {.column width="30%"}
+::: column
 {{<iconify twemoji:abacus >}}
 
 What makes it hard?
 :::
 
-::: {.column width="30%"}
+::: column
 {{<iconify twemoji:dna >}}
 
 What are we looking for?
 :::
 ::::::
 
----
+------------------------------------------------------------------------
 
 ![](https://curatime.org/assets/610bc0d76b2b3a8ddbeeb5df_curatime_logo.svg){width="40%"}
 
@@ -146,23 +147,31 @@ timeline
       2020s : AlphaFold : GPT-3 : Blood-based biomarkers for Alzheimer's
 ```
 
-> "indicators of biologic/pathogenic processes/responses ... frequently measured and evaluated"
+::: aside
+\***Definition**: "indicators of biologic/pathogenic processes/responses ... frequently measured and evaluated"
+:::
 
 ::: footer
-Bodaghi, Fattahi & Ramazani. Biomarkers. _Heliyon_ (2023). doi:[10.1016/j.heliyon.2023.e13323](https://doi.org/10.1016/j.heliyon.2023.e13323)
+Bodaghi, Fattahi & Ramazani. Biomarkers. *Heliyon* (2023). doi:[10.1016/j.heliyon.2023.e13323](https://doi.org/10.1016/j.heliyon.2023.e13323)
 
 Ng, S., Masarone, S., Watson, D. et al. The benefits and pitfalls of machine learning for biomarker discovery. *Cell Tissue Res* (2023). doi:[10.1007/s00441-023-03816-z](https://doi.org/10.1007/s00441-023-03816-z)
 :::
 
----
+------------------------------------------------------------------------
 
-### Key challenges in biomarker discovery
+### Key challenges
 
 -   High dimensionality & small sample sizes ($p \gg n$)
 -   Heterogeneous data modalities
 -   Complexity–interpretability tradeoff
 -   Validation in diverse cohorts
 -   FAIRness of data, methods and tools
+
+::: callout-note
+### Signatures or biomarkers
+
+(Sets of) features predictive of a biological outcome
+:::
 
 ::: notes
 -   Dimensionality reduction
@@ -172,53 +181,130 @@ Ng, S., Masarone, S., Watson, D. et al. The benefits and pitfalls of machine lea
 -   FAIR = Findable, Accessible, Interoperable, Reusable
 :::
 
+## Multi-omics biomarker discovery
+
+::::: columns
+::: column
+-   Contrasts with **single-omics**
+-   Combines
+    -   genomics, transcriptomics, proteomics, metabolomics, ...
+    -   cliniomics, radiomics, ...
+-   Identify robust **signatures** for disease diagnosis, prognosis or treatment
+:::
+
+::: column
+![](images/multiomics.png)
+:::
+:::::
+
+## Knowledge-intensive machine learning
+
+-   **Prior knowledge** can guide model training
+-   **Interpretability** is crucial for clinical adoption
+-   Easy to **overfit** in high-dimensional space
+-   Biomedical analytical insights not easy to **reproduce**
+    -   data wrangling
+    -   domain expertise
+    -   model interpretations
+
+# Prior knowledge {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
+
 ## What is prior knowledge?
 
-::: incremental
 -   scientific publications in literature
 -   open datasets (e.g. TCGA, OpenML, UCI)
 -   domain-specific databases (e.g. KEGG, Reactome, GO)
 -   networks data (e.g. protein-protein interactions)
 -   ontologies
 -   expert knowledge (Bayesian decision-making)
-:::
 
 . . .
 
-How can prior knowledge be encoded in a transparent, reproducible way?
-
-## What is multi-omics biomarker discovery?
-
--   Combines genomics, transcriptomics, proteomics, metabolomics, ...
--   Identify robust signatures for disease diagnosis, prognosis or treatment
-
-::: aside
-
-Signatures/biomarkers
-
-:   (Sets of) features predictive of a biological outcome
-:::
-
-# Prior knowledge {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
+How can prior knowledge be encoded in a **transparent, reproducible** way?
 
 ## Approaches
 
-1.  Knowledge graphs
-2.  Regularization
-3.  Biologically-informed neural networks
+1.  Regularization
+2.  Knowledge graphs
+3.  Biologically-informed architectures
 
--   **Knowledge Graphs:**
-    -   Encode relationships between genes, pathways, and diseases\
-    -   Use graph convolutional networks for structured representation\
--   **Regularization Strategies:**
-    -   Incorporate pathway-level priors in loss functions\
-    -   Penalize biologically implausible connections in high-dimensional space\
--   **Biologically-Informed Neural Networks:**
-    -   Architectures that enforce modularity reflecting known biology\
-    -   Example: Visible neural networks where hidden nodes map to biological entities\
--   **Benchmarking:**
-    -   Compare performance on independent cohorts\
-    -   Validate using post-hoc gene set enrichment analyses (GSEA)
+## Information theory {.smaller}
+
+**Entropy** $H(X)$ quantifies uncertainty in a random variable $X$
+
+-   Higher entropy → more uncertainty
+-   Lower entropy → more certainty
+
+**Prior knowledge** reduces entropy:
+
+-   Narrows the hypothesis space
+-   Focuses on biologically plausible solutions
+
+::: callout-important
+## Example: biomarker discovery
+
+**Without** prior knowledge, search space includes **all possible gene combinations** (high entropy, expensive).
+
+**With** prior knowledge, focus on **pathways, interactions, or known gene sets** (low entropy, faster convergence).
+:::
+
+##  {.unnumbered .smaller}
+
+**Mutual information** $I(X;Y)$ measures shared information between $X$ (data) and $Y$ (prior knowledge).
+
+Higher $I(X;Y)$ → more effective integration of prior knowledge
+
+Mutual information can be expressed $$
+I(X;K) = H(X) - H(X|K),
+$$ where
+
+-   $H(X)$ is the entropy (uncertainty) of the data $X$
+-   $H(X|K)$ is the conditional entropy of $X$ given prior knowledge $K$.
+
+Reduction in entropy is equivalent to the mutual information: $\Delta H = I(X;K).$
+
+::: callout-tip
+The greater the mutual information $I(X;K)$, the more effective the prior knowledge $K$ is in narrowing the hypothesis space.
+:::
+
+::: footer
+Shannon, C.E. A Mathematical Theory of Communication. *Bell System Technical Journal* (1948). doi:[10.1002/j.1538-7305.1948.tb01338.x](https://doi.org/10.1002/j.1538-7305.1948.tb01338.x)
+:::
+
+------------------------------------------------------------------------
+
+![Entropy $H(\cdot)$, conditional entropy $H(\cdot\mid\cdot)$ and mutual information $I(\cdot; \cdot)$](https://upload.wikimedia.org/wikipedia/commons/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg)
+
+------------------------------------------------------------------------
+
+::: callout-note
+### Example of entropy in biomarker discovery
+
+**Without Prior Knowledge**:
+
+-   Searching among **10,000 genes**.
+-   Entropy: $H(X) = \log_2(10,000) \approx 13.29 \text{ bits.}$
+
+**With Prior Knowledge**:
+
+-   Prior knowledge narrows the search to **100 candidate genes**.
+-   Entropy: $H(X|K) = \log_2(100) \approx 6.64 \text{ bits.}$
+
+**Mutual Information**
+
+-   Reduction in entropy:\
+    $I(X;K) = H(X) - H(X|K) = 13.29 - 6.64 = 6.65 \text{ bits.}$
+:::
+
+##  {.unnumbered .center}
+
+::: callout-warning
+### Lower entropy ≠ correctness
+
+Prior knowledge (and data) can still be **wrong/biassed**!
+
+Then *smaller* hypothesis space → barking up the *wrong* tree.
+:::
 
 # Multi-omics integration {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
@@ -228,15 +314,43 @@ Signatures/biomarkers
 Krassowski at al. (2020). State of the Field in Multi-Omics Research. *Frontiers in Genetics.* doi:[10.3389/fgene.2020.610798](https://doi.org/10.3389/fgene.2020.610798)
 :::
 
-## Single-omics
+## Single-omics methods
 
-Classical techniques
+| Task | Tools |
+|-------------------------------|-----------------------------------------|
+| {{< iconify twemoji:bar-chart >}} Differential expression analysis | DESeq2, edgeR, limma |
+| {{< iconify vaadin:cluster >}} Clustering samples/features | $k$-means, hierarchical clustering, $t$-SNE, UMAP |
+| {{< iconify twemoji:dna >}} Pathway enrichment analysis | GSEA, Reactome |
+| {{< iconify twemoji:chart-increasing >}} Predictive modelling | GLMs, random forests, SVM, XGBoost, NNs |
 
-Regularized regression
+## Single-omics challenges {.smaller}
 
-Batch effect correction
+| Challenge     | Methods                  | Tools/Packages                      |
+|------------------|-----------------------------|-------------------------|
+| $p \gg n$     | Dimensionality reduction | PCA, t-SNE, UMAP, LASSO, ElasticNet |
+| Batch effects | Batch effect correction  | ComBat (sva), limma, Harmony        |
+| Missing data  | Imputation               | MICE, KNN imputation, MissForest    |
 
-## Multi-omics datasets
+. . .
+
+::: callout-tip
+Single-omics data is **tabular**, for which **tree-based models** (e.g. random forests) can outperform deep learning.
+:::
+
+::: footer
+Grinszjtajn et al. [Why do tree-based models still outperform deep learning on typical tabular data?](https://proceedings.neurips.cc/paper_files/paper/2022/hash/0378c7692da36807bdec87ab043cdadc-Abstract-Datasets_and_Benchmarks.html) *NeurIPS.* (2022)
+:::
+
+------------------------------------------------------------------------
+
+::: callout-warning
+### Multi-omics data bring extra challenges
+
+-   **Integration** of different data types
+-   **Interpretation** of complex interactions
+:::
+
+## Multi-omics datasets {.center}
 
 ::::: columns
 ::: column
@@ -250,6 +364,57 @@ Batch effect correction
 -   **Multimodal structure**
 :::
 :::::
+
+## Why deep learning?
+
+Why not just use classical methods?
+
+### Classical approaches
+
+Multi-omics factor analysis (MOFA)
+
+:   Unsupervised, generalization of PCA
+
+Canonical correlation analysis (CCA)
+
+:   Find linear combinations of features that are maximally correlated
+
+Grouped LASSO
+
+:   (Linearly) penalize groups of features together
+
+## Why deep learning?
+
+Why not just use classical methods? Isn't it tabular data?
+
+::: incremental
+-   **Non-linear** relationships
+-   **Interactions** between features
+-   **Representation learning** from raw data
+-   **End-to-end** learning
+:::
+
+. . .
+
+```{mermaid}
+%%| label: classical-vs-dl-pipeline
+
+flowchart LR
+    A[Feature Selection] --> B[Modelling]
+    B --> C[Pathway Enrichment]
+```
+
+::: footer
+Park et al. Sparse overlapping group lasso for integrative multi-omics analysis. *J Comput Biol.* (2015) doi:[10.1089/cmb.2014.0197](https://doi.org/10.1089/cmb.2014.0197)
+:::
+
+## Deep learning architectures
+
+::: callout-note
+### Question
+
+Which neural network architectures are suitable for omics?
+:::
 
 ## Multimodal fusion {.smaller}
 
@@ -293,9 +458,17 @@ Sharifi-Noghabi et al. *Bioinformatics*. 2019. doi: [10.1093/bioinformatics/btz3
 Hello, world
 :::
 
+## Graph neural networks (GNNs)
+
+![MOGAT](https://www.mdpi.com/ijms/ijms-25-02788/article_deploy/html/images/ijms-25-02788-g001.png)
+
+::: footer
+Tanvir et al. MOGAT. *International Journal of Molecular Sciences*, (2024). doi:[10.3390/ijms25052788](https://doi.org/10.3390/ijms25052788)
+:::
+
 ## Model explanations
 
-![Can we call hidden nodes 'biomarkers'?](images/nn.png)
+![Can we call hidden nodes in neural networks 'biomarkers'?](images/nn.png){fig-align="center"}
 
 ## Model explanations
 
@@ -320,59 +493,78 @@ Input-level explanations:
     p = \sum_{i=x}^{\min(M, K)} P(X = i).
     $$
 
-## Multi-omics integration {auto-animate="true" auto-animate-easing="ease-in-out"}
+## What is a pathway (gene set)?
 
-::: {data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;"}
+![Reactome pathways](https://reactome.org/images/baac009f1.jpeg)
+
+A pathway is a set of genes that are known to interact in a biological process.
+
+::: footer
+<https://reactome.org/>
 :::
 
-## Multi-omics integration {auto-animate="true" auto-animate-easing="ease-in-out"}
+## Pathway databases
+
+::::: columns
+::: column
+![](https://reactome.org/templates/favourite/images/logo/logo.png)
+:::
+
+::: column
+![](https://upload.wikimedia.org/wikipedia/en/8/80/KEGG_database_logo.gif)
+:::
+:::::
+
+![](https://geneontology.org/assets/go-logo.png)
+
+##  {.centered}
+
+::: callout-info
+### Pathway enrichment analysis
+
+What are the disadvantages of using *post-hoc* GSEA or GSOA?
+:::
 
 # Visible neural networks {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
----
-
 ## Feedforward neural network
 
-![](images/nn.png)
-
-{{<iconify twemoji:magnifying-glass >}} Where are the biomarkers?
-
----
+![{{<iconify twemoji:magnifying-glass-tilted-left >}} Where are the biomarkers?](images/nn.png){fig-align="center"}
 
 ## Visible neural network (VNN)
 
 ![DCell](https://ars.els-cdn.com/content/image/1-s2.0-S0092867418307190-gr2_lrg.jpg)
 
 ::: footer
-Yu et al. Visible Machine Learning for Biomedicine. _Cell_ (2018) doi:[10.1016/j.cell.2018.05.056](https://doi.org/10.1016/j.cell.2018.05.056)
+Yu et al. Visible Machine Learning for Biomedicine. *Cell* (2018) doi:[10.1016/j.cell.2018.05.056](https://doi.org/10.1016/j.cell.2018.05.056)
 :::
 
----
+------------------------------------------------------------------------
 
 ## Knowledge-primed neural network
 
 ![](https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13059-020-02100-5/MediaObjects/13059_2020_2100_Fig1_HTML.png)
 
-:::footer
-Fortelny & Bock. Knowledge-primed neural networks. _Genome Biology_ (2020). doi:[10.1186/s13059-020-02100-5](https://doi.org/10.1186/s13059-020-02100-5)
+::: footer
+Fortelny & Bock. Knowledge-primed neural networks. *Genome Biology* (2020). doi:[10.1186/s13059-020-02100-5](https://doi.org/10.1186/s13059-020-02100-5)
 :::
 
----
+------------------------------------------------------------------------
 
 ## Biologically informed neural network (BINN)
 
 ![P-Net](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-021-03922-4/MediaObjects/41586_2021_3922_Fig1_HTML.png)
 
-:::footer
-Elmarakeby et al. Biologically informed deep neural network for prostate cancer discovery. _Nature_, (2021). doi:[10.1038/s41586-021-03922-4](https://doi.org/10.1038/s41586-021-03922-4)
+::: footer
+Elmarakeby et al. Biologically informed deep neural network for prostate cancer discovery. *Nature*, (2021). doi:[10.1038/s41586-021-03922-4](https://doi.org/10.1038/s41586-021-03922-4)
 :::
 
 ## VAE enhanced by gene annotations (VEGA)
 
 ![VEGA](https://vega-documentation.readthedocs.io/en/latest/_images/vega.png)
 
-:::footer
-Seninge, et al. VEGA. _Nature Communications_ (2021). doi:[10.1038/s41467-021-26017-0)](https://doi.org/10.1038/s41467-021-26017-0)
+::: footer
+Seninge, et al. VEGA. *Nature Communications* (2021). doi:[10.1038/s41467-021-26017-0)](https://doi.org/10.1038/s41467-021-26017-0)
 :::
 
 ## Anatomy of a BINN/VNN
@@ -380,7 +572,46 @@ Seninge, et al. VEGA. _Nature Communications_ (2021). doi:[10.1038/s41467-021-26
 ![](images/binn_natrevgen.png){width="80%"}
 
 ::: footer
-Selby, D.A. et al. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
+Selby, D.A. et al. *Nature Reviews Genetics* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
+:::
+
+## How to build a VNN
+
+1.  Start with dense sequential neural network
+2.  Use adjacency matrix of inputs → pathways as a **masking matrix**
+3.  (Optional) for next layer, mask = mapping of pathways → higher pathways
+4.  Omit all masked weights from backpropagation
+
+::: callout-warning
+What if the pathways aren't all the same depth?
+:::
+
+## Pathway discovery with BINNs
+
+![PathExpSurv](https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12859-023-05535-2/MediaObjects/12859_2023_5535_Fig1_HTML.png)
+
+::: footer
+Hou et al. PathExpSurv. *BMC Bioinformatics*, (2023). doi:[10.1186/s12859-023-05535-2](https://doi.org/10.1186/s12859-023-05535-2)
+:::
+
+## Interpretable AutoML discovery
+
+::::: columns
+::: {.column .callout-tip}
+### Open question
+
+If (1) VNNs perform better, and (2) Pathway DBs are incomplete; then
+
+**Can neural architecture search over VNNs discover new pathways?**
+:::
+
+::: column
+![](https://towardsdatascience.com/wp-content/uploads/2020/09/1nicFUkeUpWMW1w_hUVtZiw.png)
+:::
+:::::
+
+::: footer
+Han et al. (2015). arXiv:[1506.02626v3](https://arxiv.org/abs/1506.02626v3)
 :::
 
 # Hands-on {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
@@ -391,42 +622,75 @@ Selby, D.A. et al. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](http
 
 . . .
 
-::::{.columns layout="[0.5, -0.05, 0.5]"}
-:::.column
+::::: {.columns layout="[0.5, -0.05, 0.5]"}
+::: column
 ### [BINN](https://github.com/InfectionMedicineProteomics/BINN)
 
-- `pip install binn`
-- classification, regression
-- proteomics or single-omics
-- omics data: as `pandas` or csv
-- pathways: 'Reactome' or own csv (`parent,child`)
+-   `pip install binn`
+-   supervised learning
+-   proteomics or single-omics
+-   omics data: as `pandas` or csv
+-   pathways: 'Reactome' or own csv (`parent,child`)
 :::
-:::column
+
+::: column
 ### [VEGA](https://github.com/LucasESBS/vega)
 
-- `pip install scvega`
-- unsupervised learning
-- scRNA-seq
-- omics data: as Anndata
-- pathways: GMT from [MSigDB](https://www.gsea-msigdb.org/gsea/index.jsp)
+-   `pip install scvega`
+-   unsupervised learning
+-   transcriptomics
+-   omics data: as Anndata
+-   pathways: GMT from [MSigDB](https://www.gsea-msigdb.org/gsea/index.jsp)
 :::
-::::
+:::::
 
 . . .
 
-...and various other repos you can `git clone`.
+...and various other paper repos you can `git clone`.
 
 . . .
 
 Nothing for R... [yet](https://torch.mlverse.org/)!
 
-## The binn package - installation {.smaller}
+##  {.center}
 
-```bash
-pip install binn==0.1.1
+::: callout-warning
+### What's missing?
+
+-   multi-omics
+-   integration with clinical data
+-   survival analysis (censored time-to-event)
+-   R + BioConductor
+:::
+
+## The `binn` package
+
+::: callout-tip
+### Installation
+
+``` bash
+pip install binn==0.1.1         # 0.1.0 has a bug
 ```
+:::
 
-:::callout-info
+::: callout-tip
+### Usage
+
+``` python
+from binn import BINN
+binn = BINN(
+    data_matrix=input_data,
+    network_source="reactome",
+    input_source="uniprot",
+    n_layers=4,
+    dropout=0.2
+)
+```
+:::
+
+::: callout-note
+### Documentation
+
 <https://infectionmedicineproteomics.github.io/BINN/>
 :::
 
@@ -434,30 +698,34 @@ pip install binn==0.1.1
 
 What's required:
 
-::::columns
-:::column
-### `data_matrix`
+:::::: {.columns layout="[0.3, -0.05, 0.3, -0.05, 0.3]"}
+::: column
+**`data_matrix`**
 
-- matrix ($n \times p$) of omics data
+-   $n \times p$ matrix of omics data
+
+**`mapping`**
+
+-   $p \times 2$ 2 column matrix of features to pathways
+-   or `'uniprot'`
 :::
-:::column
-### `mapping`, `pathways`
 
-1. 2 column matrix: (feature, pathway)
-2. 2 column matrix: (parent, child)
+::: column
+**`pathways`**
 
-[Or set `use_reactome=True`]{style="font-size: small;"}
+-   $? \times 2$ matrix: parent → child pathway
+-   or `'reactome'`
 :::
-:::column
-### `design_matrix`
 
-- matrix $n \times 2$ of targets `sample,group`
+::: column
+**`design_matrix`**
 
-[e.g. binary classification, group $\in \{1,2\}$]{style="font-size: small;"}
+-   matrix $n \times 2$ of targets `sample,group`
+-   `group` = output class
 :::
-::::
+::::::
 
-:::footer
+::: footer
 <https://infectionmedicineproteomics.github.io/BINN/>
 :::
 
@@ -465,36 +733,44 @@ What's required:
 
 ![Node importance plot](https://infectionmedicineproteomics.github.io/BINN/img/interpreted_binn.png)
 
-:::footer
+::: footer
 <https://infectionmedicineproteomics.github.io/BINN/>
 :::
 
 ## Worksheet
 
-![](images/qr_code.png)
+![](images/qr_code.png){fig-align="center"}
 
 Colab notebook and slides: [github.com/datasciapps/trifels2025](https://github.com/datasciapps/trifels2025)
 
 # Discussion {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
-## Challenges & Future Directions {.smaller}
+## Challenges {.smaller}
 
-### Limitations
+-   **Lack of Robust Tools**: Few standardized frameworks, poor interpretability and limited benchmarks.
+-   **Alternative Models**:
+    -   **Classical methods**: faster, more interpretable, statistically robust
+    -   **GNNs**: Better structural representation but need high-quality pathway graphs.\
+    -   **Transformers/LLMs**: Strong sequence modeling but lack explicit pathway structure.\
+    -   **Hybrid Approaches**: Combining VNNs with GNNs or transformers may improve learning.\
+-   **Pathway Databases Are Incomplete**: KEGG, Reactome, and GO suffer from curation bias, lack context specificity, and may be outdated.
 
--   Residual uncertainty in integrating diverse modalities
--   Interpretability challenges in highly complex models
--   Potential biases in available biological knowledge bases
+## Open questions {.smaller}
 
-### Future directions
+### Biological fidelity
 
--   Integration of causal inference techniques
--   Dynamic updating of knowledge graphs as new data emerges
--   Scaling to larger, more diverse cohorts to validate reproducibility
+-   Is a BINN really a digital twin of a cell?
+-   Biological sparsity or just noisy sparsity?
 
-### Open questions
+### Model validation
 
--   How to balance model complexity with biological interpretability?
--   What standards ensure FAIRness in rapidly evolving multi-omics workflows?
+-   Synthetic and experimental data for validation
+-   Uncertainty-aware architectures to quantify confidence in biological predictions.
+
+### Performance vs interpretability
+
+-   Mechanistic insight vs. predictive accuracy: which should take priority?
+-   Do black-box models merely reinforce existing biases in pathway databases?
 
 ## Things we didn't cover today
 
@@ -521,9 +797,9 @@ Colab notebook and slides: [github.com/datasciapps/trifels2025](https://github.c
 ::: callout-note
 ## Further reading
 
-Selby, D.A. et al. Beyond the black box with biologically informed neural networks. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
+Selby, D.A. et al. Beyond the black box with biologically informed neural networks. *Nature Reviews Genetics* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
 :::
 
-::: callout-tip
+::: footer
 To export these slides, hit `E` and then *Print to PDF*.
 :::
