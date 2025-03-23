@@ -367,6 +367,14 @@ Fortelny & Bock. Knowledge-primed neural networks. _Genome Biology_ (2020). doi:
 Elmarakeby et al. Biologically informed deep neural network for prostate cancer discovery. _Nature_, (2021). doi:[10.1038/s41586-021-03922-4](https://doi.org/10.1038/s41586-021-03922-4)
 :::
 
+## VAE enhanced by gene annotations (VEGA)
+
+![VEGA](https://vega-documentation.readthedocs.io/en/latest/_images/vega.png)
+
+:::footer
+Seninge, et al. VEGA. _Nature Communications_ (2021). doi:[10.1038/s41467-021-26017-0)](https://doi.org/10.1038/s41467-021-26017-0)
+:::
+
 ## Anatomy of a BINN/VNN
 
 ![](images/binn_natrevgen.png){width="80%"}
@@ -375,25 +383,91 @@ Elmarakeby et al. Biologically informed deep neural network for prostate cancer 
 Selby, D.A. et al. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
 :::
 
-## Tools for binns
+# Hands-on {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
-. . .
+## Accessible tools for BINNs {.smaller}
 
 ...would be a very good idea
 
-. . . 
+. . .
 
-:::: columns
+::::{.columns layout="[0.5, -0.05, 0.5]"}
+:::.column
+### [BINN](https://github.com/InfectionMedicineProteomics/BINN)
 
+- `pip install binn`
+- classification, regression
+- proteomics or single-omics
+- omics data: as `pandas` or csv
+- pathways: 'Reactome' or own csv (`parent,child`)
+:::
 :::column
-The `binn` package
+### [VEGA](https://github.com/LucasESBS/vega)
 
-:::column
-VEGA `scvega`
+- `pip install scvega`
+- unsupervised learning
+- scRNA-seq
+- omics data: as Anndata
+- pathways: GMT from [MSigDB](https://www.gsea-msigdb.org/gsea/index.jsp)
 :::
 ::::
 
-# Hands-on session {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
+. . .
+
+...and various other repos you can `git clone`.
+
+. . .
+
+Nothing for R... [yet](https://torch.mlverse.org/)!
+
+## The binn package - installation {.smaller}
+
+```bash
+pip install binn==0.1.1
+```
+
+:::callout-info
+<https://infectionmedicineproteomics.github.io/BINN/>
+:::
+
+## The binn package - inputs {.smaller}
+
+What's required:
+
+::::columns
+:::column
+### `data_matrix`
+
+- matrix ($n \times p$) of omics data
+:::
+:::column
+### `mapping`, `pathways`
+
+1. 2 column matrix: (feature, pathway)
+2. 2 column matrix: (parent, child)
+
+[Or set `use_reactome=True`]{style="font-size: small;"}
+:::
+:::column
+### `design_matrix`
+
+- matrix $n \times 2$ of targets `sample,group`
+
+[e.g. binary classification, group $\in \{1,2\}$]{style="font-size: small;"}
+:::
+::::
+
+:::footer
+<https://infectionmedicineproteomics.github.io/BINN/>
+:::
+
+## The `binn` package - visualization
+
+![Node importance plot](https://infectionmedicineproteomics.github.io/BINN/img/interpreted_binn.png)
+
+:::footer
+<https://infectionmedicineproteomics.github.io/BINN/>
+:::
 
 ## Worksheet
 
