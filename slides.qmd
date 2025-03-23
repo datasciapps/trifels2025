@@ -16,30 +16,24 @@ format:
         slide-number: true #c/t
         logo: images/dfki_black.png
         theme: default
-        navigation-mode: linear
-        #chalkboard: true # drawing with 'c' and 'b' hotkeys
+        navigation-mode: linear # linear or vertical
+        chalkboard: true # drawing with 'c' and 'b' hotkeys
         toc: true
         toc-depth: 1
         toc-title: Agenda
+        number-sections: true
+        number-depth: 2 # subsection numbering
         transition: fade
         background-transition: fade
-        embed-resources: true # disable for editing
-    beamer:
-        theme: metropolis
-        slide-level: 2
-        header-includes: |
-            \newenvironment{figure*}%
-            {\begin{figure}}
-            {\end{figure}}
-            \newenvironment{table*}%
-            {\begin{table}}
-            {\end{table}}
+        embed-resources: false # true is slower but self-contained
+        mermaid:
+            theme: forest
 engine: knitr
 ---
 
-# 1. Introduction {background-image="images/annweiler.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
+# Preamble {.unnumbered .unlisted background-image="images/annweiler.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
-```{css, echo=FALSE}
+```{css, label='css', echo=FALSE}
 /* Style the table of contents */
 #TOC ul li {
     list-style-type: none;
@@ -51,79 +45,147 @@ engine: knitr
 }
 ```
 
-## David Selby
+## David Selby {.unnumbered}
 
 ::::: columns
 ::: column
 ![](images/david.jpg)
 
-**Senior Researcher** 🇩🇪 🇬🇧\
+**Senior Researcher** {{< iconify twemoji:flag-germany title="Germany" >}} {{< iconify twemoji:flag-united-kingdom title="United Kingdom" >}}\
 Data Science & its Applications\
 [david.selby\@dfki.de](mailto:david.selby@dfki.de)
 :::
 
 ::: column
-![](images/dfki_logo_full.png)
-![](https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/RPTU_Logo.svg/640px-RPTU_Logo.svg.png)
+![](images/dfki_logo_full.png) ![](images/rptu_logo.png)
 :::
 :::::
 
-##  {background-image="images/annweiler.jpg" background-size="cover" background-color="black"}
+##  {.unnumbered background-image="images/annweiler.jpg" background-size="cover" background-color="black"}
 
 ::: footer
-&copy; David Selby
+© David Selby
 :::
 
-##  {background-image="images/burg_trifels1.jpg" background-size="cover" background-color="black"}
+##  {.unnumbered background-image="images/burg_trifels1.jpg" background-size="cover" background-color="black"}
 
 ::: footer
-&copy; David Selby
+© David Selby
 :::
 
-##  {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black"}
+##  {.unnumbered background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black"}
 
 ::: footer
-&copy; David Selby
+© David Selby
 :::
 
-##  {background-image="images/burg_aussicht.jpg" background-size="cover" background-color="black"}
+##  {.unnumbered background-image="images/burg_aussicht.jpg" background-size="cover" background-color="black"}
 
 ::: footer
-&copy; David Selby
+© David Selby
 :::
 
-## Workshop objectives
+## Workshop objectives {{< iconify pajamas:issue-type-objective >}} {.unnumbered}
 
 By the end of this session, we aim to:
 
--   **Understand** the role of prior knowledge in biomarker discovery
--   **Learn** methods to integrate biological context into multi-omics workflows
--   **Explore** tools and case studies for knowledge-guided analysis
--   **Discuss** challenges in knowledge-guided AI for biomedicine
+-   {{<iconify twemoji:brain >}} **Understand** role of prior knowledge in biomarker discovery
+-   {{<iconify twemoji:dna >}} **Learn** how to integrate biological context into workflows
+-   {{<iconify twemoji:hammer-and-wrench >}} **Explore** tools for knowledge-guided analysis
+-   {{<iconify twemoji:construction >}} **Discuss** challenges in knowledge-guided AI for biomedicine
 
-## {background-image="https://www.researchgate.net/publication/346929297/figure/fig1/AS:11431281241521883@1715131118932/The-complexity-of-multi-omics-merger-of-omics-driven-biology-data-science-informatics_W640.jpg" background-size="contain"}
+# Introduction & Motivation {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
-:::footer
-Krassowski at al. (2020). State of the Field in Multi-Omics Research. _Frontiers in Genetics._ doi:[10.3389/fgene.2020.610798](https://doi.org/10.3389/fgene.2020.610798)
+##  {.center .unnumbered}
+
+[**Knowledge enhanced**]{style="color: rgb(029, 058, 143);"} [(multi-omics)]{style="color: rgb(236, 097, 159);"} [**biomarker discovery**]{style="color: rgb(106, 191, 163);"}
+
+. . .
+
+:::::: columns
+::: {.column width="30%"}
+{{<iconify twemoji:brain >}}
+
+Why? Where? How?
 :::
 
-## Motivation
+::: {.column width="30%"}
+{{<iconify twemoji:abacus >}}
 
-**Key challenges in biomarker discovery:** 
-
-- High dimensionality ($p \gg n$)
-- Heterogeneous, multimodal data
-- Black-box AI models
-- Validation in diverse cohorts
-- FAIRness of data, methods and tools
-
-::: {.notes}
-- Dimensionality reduction
-- Integrating different molecular data, as well as non-molecular clinical data and imaging
-- Explainability, interpretability
-- Heavy reliance on TCGA and common tools may not generalize
-- FAIR = Findable, Accessible, Interoperable, Reusable
+What makes it hard?
 :::
+
+::: {.column width="30%"}
+{{<iconify twemoji:dna >}}
+
+What are we looking for?
+:::
+::::::
+
+---
+
+![](https://curatime.org/assets/610bc0d76b2b3a8ddbeeb5df_curatime_logo.svg){width="40%"}
+
+![](https://curatime.org/img/containers/assets/curatime_unsere-losung_transparent.png/79c9599f71a662d02213fc803b87d53f.webp)
+
+------------------------------------------------------------------------
+
+```{mermaid}
+%%| label: biomarker-history
+
+timeline
+    title A short history of biomarker discovery
+
+%%    section Before AI Integration
+      1949 : Introduction of 'biochemical markers' (Mundkur)
+      1970s : Term 'biomarker' coined (1973) : Prostate-Specific Antigen discovered (1979)
+      1990s : BRCA1 gene discovered by Mary-Claire King (1990) : BRCA1 gene cloned (1994)
+%%    section After AI Integration
+      2000s : 'biomarker' formally defined* (2000) : NGS introduced (2005) : QRISK (2007)
+      2010s : liquid biopsy : endotypes : CRISPR : ImageNet : GANs : BERT : SHAP
+      2020s : AlphaFold : GPT-3 : Blood-based biomarkers for Alzheimer's
+```
+
+> "indicators of biologic/pathogenic processes/responses ... frequently measured and evaluated"
+
+::: footer
+Bodaghi, Fattahi & Ramazani. Biomarkers. _Heliyon_ (2023). doi:[10.1016/j.heliyon.2023.e13323](https://doi.org/10.1016/j.heliyon.2023.e13323)
+
+Ng, S., Masarone, S., Watson, D. et al. The benefits and pitfalls of machine learning for biomarker discovery. *Cell Tissue Res* (2023). doi:[10.1007/s00441-023-03816-z](https://doi.org/10.1007/s00441-023-03816-z)
+:::
+
+---
+
+### Key challenges in biomarker discovery
+
+-   High dimensionality & small sample sizes ($p \gg n$)
+-   Heterogeneous data modalities
+-   Complexity–interpretability tradeoff
+-   Validation in diverse cohorts
+-   FAIRness of data, methods and tools
+
+::: notes
+-   Dimensionality reduction
+-   Integrating different molecular data, as well as non-molecular clinical data and imaging
+-   Explainability, interpretability
+-   Heavy reliance on TCGA and common tools may not generalize
+-   FAIR = Findable, Accessible, Interoperable, Reusable
+:::
+
+## What is prior knowledge?
+
+::: incremental
+-   scientific publications in literature
+-   open datasets (e.g. TCGA, OpenML, UCI)
+-   domain-specific databases (e.g. KEGG, Reactome, GO)
+-   networks data (e.g. protein-protein interactions)
+-   ontologies
+-   expert knowledge (Bayesian decision-making)
+:::
+
+. . .
+
+How can prior knowledge be encoded in a transparent, reproducible way?
 
 ## What is multi-omics biomarker discovery?
 
@@ -137,23 +199,34 @@ Signatures/biomarkers
 :   (Sets of) features predictive of a biological outcome
 :::
 
-## curATime project
-
-A bit of motivation
-
-## What is multi-omics?
-
-[filler]
-
-# 3. Prior knowledge {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+# Prior knowledge {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
 ## Approaches
 
-1. Knowledge graphs
-2. Regularization
-3. Biologically-informed neural networks
+1.  Knowledge graphs
+2.  Regularization
+3.  Biologically-informed neural networks
 
-# 2. Multi-omics integration {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+-   **Knowledge Graphs:**
+    -   Encode relationships between genes, pathways, and diseases\
+    -   Use graph convolutional networks for structured representation\
+-   **Regularization Strategies:**
+    -   Incorporate pathway-level priors in loss functions\
+    -   Penalize biologically implausible connections in high-dimensional space\
+-   **Biologically-Informed Neural Networks:**
+    -   Architectures that enforce modularity reflecting known biology\
+    -   Example: Visible neural networks where hidden nodes map to biological entities\
+-   **Benchmarking:**
+    -   Compare performance on independent cohorts\
+    -   Validate using post-hoc gene set enrichment analyses (GSEA)
+
+# Multi-omics integration {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
+
+##  {.unnumbered background-image="https://www.researchgate.net/publication/346929297/figure/fig1/AS:11431281241521883@1715131118932/The-complexity-of-multi-omics-merger-of-omics-driven-biology-data-science-informatics.tif" background-size="contain"}
+
+::: footer
+Krassowski at al. (2020). State of the Field in Multi-Omics Research. *Frontiers in Genetics.* doi:[10.3389/fgene.2020.610798](https://doi.org/10.3389/fgene.2020.610798)
+:::
 
 ## Single-omics
 
@@ -178,27 +251,45 @@ Batch effect correction
 :::
 :::::
 
+## Multimodal fusion {.smaller}
+
+When should we combine omics layers?
+
+![](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f809/8829812/7f899d7be8ff/gr2.jpg)
+
+::: footer
+Cai, Poulos, Liu & Zhong. Machine learning for multi-omics data integration in cancer. *iScience.* (2022). doi:[10.1016/j.isci.2022.103798](https://doi.org/10.1016/j.isci.2022.103798)
+:::
+
 ## Multimodal fusion
 
-When should we combine modalities?
+When should we combine omics layers?
 
-**Early** --- easier, but may lose modality-specific information, worse performance[^1]
+Early
 
-[^1]: Hauptmann, T., Kramer, S. A fair experimental comparison of neural network architectures for latent representations of multi-omics for drug response prediction. *BMC Bioinformatics* 24, 45 (2023). doi:[10.1186/s12859-023-05166-7](https://doi.org/10.1186/s12859-023-05166-7)
+:   easier, loss of information, worse performance\*
 
-**Intermediate** --- modality-specific layers, but harder to train
+Intermediate (mixed, joint)
 
-**Late** --- combine modalities at the end, but may not capture interactions
+:   modality-specific layers, but harder to train
+
+Late
+
+:   may not capture interactions
+
+::: footer
+\*Hauptmann, T., Kramer, S. A fair experimental comparison of neural network architectures for latent representations of multi-omics for drug response prediction. *BMC Bioinformatics* 24, 45 (2023). doi:[10.1186/s12859-023-05166-7](https://doi.org/10.1186/s12859-023-05166-7)
+:::
 
 ## Late fusion (MOLI)
 
 ![](https://cdn.ncbi.nlm.nih.gov/pmc/blobs/3f5e/6612815/2f27faef728d/btz318f1.jpg)
 
-:::footer
-Sharifi-Noghabi et al. _Bioinformatics_. 2019. doi: [10.1093/bioinformatics/btz318](https://doi.org/10.1093/bioinformatics/btz318)
+::: footer
+Sharifi-Noghabi et al. *Bioinformatics*. 2019. doi: [10.1093/bioinformatics/btz318](https://doi.org/10.1093/bioinformatics/btz318)
 :::
 
-::: {.notes}
+::: notes
 Hello, world
 :::
 
@@ -236,44 +327,116 @@ Input-level explanations:
 
 ## Multi-omics integration {auto-animate="true" auto-animate-easing="ease-in-out"}
 
-# 4. Visible neural networks {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+# Visible neural networks {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
 ---
-
-![](images/binn_natrevgen.png){width=80%}
-
-::: footer
-Selby, D.A. et al. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
-:::
 
 ## Feedforward neural network
 
 ![](images/nn.png)
 
-# 5. Practical {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+{{<iconify twemoji:magnifying-glass >}} Where are the biomarkers?
 
-# 6. Discussion {background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" .smaller background-opacity="0.5"}
+---
 
-## Worksheet {.smaller}
+## Visible neural network (VNN)
+
+![DCell](https://ars.els-cdn.com/content/image/1-s2.0-S0092867418307190-gr2_lrg.jpg)
+
+::: footer
+Yu et al. Visible Machine Learning for Biomedicine. _Cell_ (2018) doi:[10.1016/j.cell.2018.05.056](https://doi.org/10.1016/j.cell.2018.05.056)
+:::
+
+---
+
+## Knowledge-primed neural network
+
+![](https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13059-020-02100-5/MediaObjects/13059_2020_2100_Fig1_HTML.png)
+
+:::footer
+Fortelny & Bock. Knowledge-primed neural networks. _Genome Biology_ (2020). doi:[10.1186/s13059-020-02100-5](https://doi.org/10.1186/s13059-020-02100-5)
+:::
+
+---
+
+## Biologically informed neural network (BINN)
+
+![P-Net](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-021-03922-4/MediaObjects/41586_2021_3922_Fig1_HTML.png)
+
+:::footer
+Elmarakeby et al. Biologically informed deep neural network for prostate cancer discovery. _Nature_, (2021). doi:[10.1038/s41586-021-03922-4](https://doi.org/10.1038/s41586-021-03922-4)
+:::
+
+## Anatomy of a BINN/VNN
+
+![](images/binn_natrevgen.png){width="80%"}
+
+::: footer
+Selby, D.A. et al. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
+:::
+
+## Tools for binns
+
+. . .
+
+...would be a very good idea
+
+. . . 
+
+:::: columns
+
+:::column
+The `binn` package
+
+:::column
+VEGA `scvega`
+:::
+::::
+
+# Hands-on session {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
+
+## Worksheet
 
 ![](images/qr_code.png)
 
 Colab notebook and slides: [github.com/datasciapps/trifels2025](https://github.com/datasciapps/trifels2025)
 
-## The `binn` package
+# Discussion {.smaller background-image="images/burg_trifels2.jpg" background-size="cover" background-color="black" background-opacity="0.5"}
 
-\[QR code to Colab\]
+## Challenges & Future Directions {.smaller}
 
-short URL
+### Limitations
 
-------------------------------------------------------------------------
+-   Residual uncertainty in integrating diverse modalities
+-   Interpretability challenges in highly complex models
+-   Potential biases in available biological knowledge bases
 
-# Thank you! {.unlisted}
+### Future directions
+
+-   Integration of causal inference techniques
+-   Dynamic updating of knowledge graphs as new data emerges
+-   Scaling to larger, more diverse cohorts to validate reproducibility
+
+### Open questions
+
+-   How to balance model complexity with biological interpretability?
+-   What standards ensure FAIRness in rapidly evolving multi-omics workflows?
+
+## Things we didn't cover today
+
+-   Causal inference
+-   Dynamic updating of knowledge graphs
+-   Bayesian prior elicitation
+-   GenAI: LLM agents & retrieval-augmented generation
+
+# Thank you! {.unlisted .unnumbered}
 
 ::::: columns
 ::: {.column width="70%"}
-[github.com/datasciapps/trifels2025](https://github.com/datasciapps/trifels2025)\
-**Contact:** [david.selby\@dfki.de](mailto:david.selby@dfki.de?Subject=Trifels%20Spring%20School)
+ 
+
+{{<iconify twemoji:link >}} [github.com/datasciapps/trifels2025](https://github.com/datasciapps/trifels2025)\
+{{<iconify twemoji:envelope >}} [david.selby\@dfki.de](mailto:david.selby@dfki.de?Subject=Trifels%20Spring%20School)
 :::
 
 ::: {.column width="30%"}
@@ -281,9 +444,12 @@ short URL
 :::
 :::::
 
- 
+::: callout-note
+## Further reading
 
-::: {style="font-size: smaller;"}
-**Further reading**:\
 Selby, D.A. et al. Beyond the black box with biologically informed neural networks. *Nat Rev Genet* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
+:::
+
+::: callout-tip
+To export these slides, hit `E` and then *Print to PDF*.
 :::

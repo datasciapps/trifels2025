@@ -1,0 +1,5 @@
+# Ignore PowerPoint versions
+*.pptx
+# Ignore non-self-contained html output
+# (Set embed-resources: true when rendering)
+# slides_files/
