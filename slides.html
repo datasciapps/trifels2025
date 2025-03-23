@@ -397,7 +397,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-color="black" data-background-image="images/burg_trifels2.jpg" data-background-opacity="0.5" data-background-size="contain" class="quarto-title-block center">
+<section data-background-color="black" data-background-image="images/burg_trifels2.jpg" data-background-opacity="0.5" data-background-size="contain" class="quarto-title-block center">
   <h1 class="title">Knowledge-enhanced biomarker discovery</h1>
   <p class="subtitle">Trifels Spring School 2025: AI in Bioinformatics</p>
 
@@ -417,17 +417,17 @@ David Selby
 <nav role="doc-toc"> 
 <h2 id="toc-title">Agenda</h2>
 <ul>
-<li><a href="#/introduction-motivation" id="/toc-introduction-motivation"><span class="header-section-number">1</span> Introduction &amp; Motivation</a></li>
-<li><a href="#/prior-knowledge" id="/toc-prior-knowledge"><span class="header-section-number">2</span> Prior knowledge</a></li>
-<li><a href="#/multi-omics-integration" id="/toc-multi-omics-integration"><span class="header-section-number">3</span> Multi-omics integration</a></li>
-<li><a href="#/visible-neural-networks" id="/toc-visible-neural-networks"><span class="header-section-number">4</span> Visible neural networks</a></li>
-<li><a href="#/hands-on" id="/toc-hands-on"><span class="header-section-number">5</span> Hands-on</a></li>
-<li><a href="#/discussion" id="/toc-discussion"><span class="header-section-number">6</span> Discussion</a></li>
+<li><span class="header-section-number">1</span> Introduction &amp; Motivation</li>
+<li><span class="header-section-number">2</span> Prior knowledge</li>
+<li><span class="header-section-number">3</span> Multi-omics integration</li>
+<li><span class="header-section-number">4</span> Visible neural networks</li>
+<li><span class="header-section-number">5</span> Hands-on</li>
+<li><span class="header-section-number">6</span> Discussion</li>
 </ul>
 </nav>
 </section>
 <section>
-<section id="preamble" class="title-slide slide level1 unnumbered unlisted center" data-background-image="images/annweiler.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5">
+<section class="title-slide slide level1 unnumbered unlisted center" data-background-image="images/annweiler.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5">
 <h1>Preamble</h1>
 <div class="cell">
 <style type="text/css">
@@ -443,7 +443,7 @@ David Selby
 </style>
 </div>
 </section>
-<section id="david-selby" class="slide level2 unnumbered">
+<section class="slide level2 unnumbered">
 <h2>David Selby</h2>
 <div class="columns">
 <div class="column">
@@ -455,31 +455,31 @@ Data Science &amp; its Applications<br>
 <p><img data-src="images/dfki_logo_full.png"> <img data-src="images/rptu_logo.png"></p>
 </div></div>
 </section>
-<section id="section" class="slide level2 unnumbered" data-background-image="images/annweiler.jpg" data-background-size="cover" data-background-color="black">
+<section class="slide level2 unnumbered" data-background-image="images/annweiler.jpg" data-background-size="cover" data-background-color="black">
 <h2></h2>
 <div class="footer">
 <p>© David Selby</p>
 </div>
 </section>
-<section id="section-1" class="slide level2 unnumbered" data-background-image="images/burg_trifels1.jpg" data-background-size="cover" data-background-color="black">
+<section class="slide level2 unnumbered" data-background-image="images/burg_trifels1.jpg" data-background-size="cover" data-background-color="black">
 <h2></h2>
 <div class="footer">
 <p>© David Selby</p>
 </div>
 </section>
-<section id="section-2" class="slide level2 unnumbered" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black">
+<section class="slide level2 unnumbered" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black">
 <h2></h2>
 <div class="footer">
 <p>© David Selby</p>
 </div>
 </section>
-<section id="section-3" class="slide level2 unnumbered" data-background-image="images/burg_aussicht.jpg" data-background-size="cover" data-background-color="black">
+<section class="slide level2 unnumbered" data-background-image="images/burg_aussicht.jpg" data-background-size="cover" data-background-color="black">
 <h2></h2>
 <div class="footer">
 <p>© David Selby</p>
 </div>
 </section>
-<section id="workshop-objectives" class="slide level2 unnumbered">
+<section class="slide level2 unnumbered">
 <h2>Workshop objectives <iconify-icon role="img" inline="" icon="pajamas:issue-type-objective" aria-label="Icon issue-type-objective from pajamas Iconify.design set." title="Icon issue-type-objective from pajamas Iconify.design set."></iconify-icon></h2>
 <p>By the end of this session, we aim to:</p>
 <ul>
@@ -490,25 +490,30 @@ Data Science &amp; its Applications<br>
 </ul>
 </section></section>
 <section>
-<section id="introduction-motivation" class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="1">
+<section class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="1">
 <h1><span class="header-section-number">1</span> Introduction &amp; Motivation</h1>
 
 </section>
-<section id="section-4" class="slide level2 center unnumbered">
+<section class="slide level2 center unnumbered">
 <h2></h2>
 <p><span style="color: rgb(029, 058, 143);"><strong>Knowledge enhanced</strong></span> <span style="color: rgb(236, 097, 159);">(multi-omics)</span> <span style="color: rgb(106, 191, 163);"><strong>biomarker discovery</strong></span></p>
 <div class="fragment">
-<div class="columns">
-<div class="column" style="width:30%;">
+<div>
+
+</div>
+<div class="columns quarto-layout-panel" data-layout="[0.3, 0.3, 0.3]">
+<div class="quarto-layout-row">
+<div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><iconify-icon role="img" inline="" icon="twemoji:brain" aria-label="Icon brain from twemoji Iconify.design set." title="Icon brain from twemoji Iconify.design set."></iconify-icon></p>
 <p>Why? Where? How?</p>
-</div><div class="column" style="width:30%;">
+</div><div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><iconify-icon role="img" inline="" icon="twemoji:abacus" aria-label="Icon abacus from twemoji Iconify.design set." title="Icon abacus from twemoji Iconify.design set."></iconify-icon></p>
 <p>What makes it hard?</p>
-</div><div class="column" style="width:30%;">
+</div><div class="column quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
 <p><iconify-icon role="img" inline="" icon="twemoji:dna" aria-label="Icon dna from twemoji Iconify.design set." title="Icon dna from twemoji Iconify.design set."></iconify-icon></p>
 <p>What are we looking for?</p>
 </div></div>
+</div>
 </div>
 </section>
 <section class="slide level2">
@@ -538,17 +543,17 @@ Data Science &amp; its Applications<br>
 </div>
 </div>
 </div>
-<blockquote>
-<p>“indicators of biologic/pathogenic processes/responses … frequently measured and evaluated”</p>
-</blockquote>
+
 <div class="footer">
 <p>Bodaghi, Fattahi &amp; Ramazani. Biomarkers. <em>Heliyon</em> (2023). doi:<a href="https://doi.org/10.1016/j.heliyon.2023.e13323">10.1016/j.heliyon.2023.e13323</a></p>
 <p>Ng, S., Masarone, S., Watson, D. et al.&nbsp;The benefits and pitfalls of machine learning for biomarker discovery. <em>Cell Tissue Res</em> (2023). doi:<a href="https://doi.org/10.1007/s00441-023-03816-z">10.1007/s00441-023-03816-z</a></p>
 </div>
-</section>
+<aside><div>
+<p>*<strong>Definition</strong>: “indicators of biologic/pathogenic processes/responses … frequently measured and evaluated”</p>
+</div></aside></section>
 <section class="slide level2">
 
-<h3 id="key-challenges-in-biomarker-discovery">Key challenges in biomarker discovery</h3>
+<h3>Key challenges</h3>
 <ul>
 <li>High dimensionality &amp; small sample sizes (<span class="math inline">\(p \gg n\)</span>)</li>
 <li>Heterogeneous data modalities</li>
@@ -556,6 +561,19 @@ Data Science &amp; its Applications<br>
 <li>Validation in diverse cohorts</li>
 <li>FAIRness of data, methods and tools</li>
 </ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Signatures or biomarkers</strong></p>
+</div>
+<div class="callout-content">
+<p>(Sets of) features predictive of a biological outcome</p>
+</div>
+</div>
+</div>
 <aside class="notes">
 <ul>
 <li>Dimensionality reduction</li>
@@ -576,98 +594,288 @@ Data Science &amp; its Applications<br>
           display:block!important;
       }</style></aside>
 </section>
-<section id="what-is-prior-knowledge" class="slide level2" data-number="1.1">
-<h2><span class="header-section-number">1.1</span> What is prior knowledge?</h2>
-<div>
+<section class="slide level2">
+<h2>Multi-omics biomarker discovery</h2>
+<div class="columns">
+<div class="column">
 <ul>
-<li class="fragment">scientific publications in literature</li>
-<li class="fragment">open datasets (e.g.&nbsp;TCGA, OpenML, UCI)</li>
-<li class="fragment">domain-specific databases (e.g.&nbsp;KEGG, Reactome, GO)</li>
-<li class="fragment">networks data (e.g.&nbsp;protein-protein interactions)</li>
-<li class="fragment">ontologies</li>
-<li class="fragment">expert knowledge (Bayesian decision-making)</li>
+<li>Contrasts with <strong>single-omics</strong></li>
+<li>Combines
+<ul>
+<li>genomics, transcriptomics, proteomics, metabolomics, …</li>
+<li>cliniomics, radiomics, …</li>
+</ul></li>
+<li>Identify robust <strong>signatures</strong> for disease diagnosis, prognosis or treatment</li>
 </ul>
-</div>
-<div class="fragment">
-<p>How can prior knowledge be encoded in a transparent, reproducible way?</p>
-</div>
+</div><div class="column">
+<p><img data-src="images/multiomics.png"></p>
+</div></div>
 </section>
-<section id="what-is-multi-omics-biomarker-discovery" class="slide level2" data-number="1.2">
-<h2><span class="header-section-number">1.2</span> What is multi-omics biomarker discovery?</h2>
+<section class="slide level2">
+<h2>Knowledge-intensive machine learning</h2>
 <ul>
-<li>Combines genomics, transcriptomics, proteomics, metabolomics, …</li>
-<li>Identify robust signatures for disease diagnosis, prognosis or treatment</li>
-</ul>
-
-<aside><div>
-<dl>
-<dt>Signatures/biomarkers</dt>
-<dd>
-<p>(Sets of) features predictive of a biological outcome</p>
-</dd>
-</dl>
-</div></aside></section></section>
-<section>
-<section id="prior-knowledge" class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="2">
-<h1><span class="header-section-number">2</span> Prior knowledge</h1>
-
-</section>
-<section id="approaches" class="slide level2" data-number="2.1">
-<h2><span class="header-section-number">2.1</span> Approaches</h2>
-<ol type="1">
-<li>Knowledge graphs</li>
-<li>Regularization</li>
-<li>Biologically-informed neural networks</li>
-</ol>
+<li><strong>Prior knowledge</strong> can guide model training</li>
+<li><strong>Interpretability</strong> is crucial for clinical adoption</li>
+<li>Easy to <strong>overfit</strong> in high-dimensional space</li>
+<li>Biomedical analytical insights not easy to <strong>reproduce</strong>
 <ul>
-<li><strong>Knowledge Graphs:</strong>
-<ul>
-<li>Encode relationships between genes, pathways, and diseases<br>
-</li>
-<li>Use graph convolutional networks for structured representation<br>
-</li>
-</ul></li>
-<li><strong>Regularization Strategies:</strong>
-<ul>
-<li>Incorporate pathway-level priors in loss functions<br>
-</li>
-<li>Penalize biologically implausible connections in high-dimensional space<br>
-</li>
-</ul></li>
-<li><strong>Biologically-Informed Neural Networks:</strong>
-<ul>
-<li>Architectures that enforce modularity reflecting known biology<br>
-</li>
-<li>Example: Visible neural networks where hidden nodes map to biological entities<br>
-</li>
-</ul></li>
-<li><strong>Benchmarking:</strong>
-<ul>
-<li>Compare performance on independent cohorts<br>
-</li>
-<li>Validate using post-hoc gene set enrichment analyses (GSEA)</li>
+<li>data wrangling</li>
+<li>domain expertise</li>
+<li>model interpretations</li>
 </ul></li>
 </ul>
 </section></section>
 <section>
-<section id="multi-omics-integration" class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="3">
+<section class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="2">
+<h1><span class="header-section-number">2</span> Prior knowledge</h1>
+
+</section>
+<section class="slide level2">
+<h2>What is prior knowledge?</h2>
+<ul>
+<li>scientific publications in literature</li>
+<li>open datasets (e.g.&nbsp;TCGA, OpenML, UCI)</li>
+<li>domain-specific databases (e.g.&nbsp;KEGG, Reactome, GO)</li>
+<li>networks data (e.g.&nbsp;protein-protein interactions)</li>
+<li>ontologies</li>
+<li>expert knowledge (Bayesian decision-making)</li>
+</ul>
+<div class="fragment">
+<p>How can prior knowledge be encoded in a <strong>transparent, reproducible</strong> way?</p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Approaches</h2>
+<ol type="1">
+<li>Regularization</li>
+<li>Knowledge graphs</li>
+<li>Biologically-informed architectures</li>
+</ol>
+</section>
+<section class="slide level2 smaller">
+<h2>Information theory</h2>
+<p><strong>Entropy</strong> <span class="math inline">\(H(X)\)</span> quantifies uncertainty in a random variable <span class="math inline">\(X\)</span></p>
+<ul>
+<li>Higher entropy → more uncertainty</li>
+<li>Lower entropy → more certainty</li>
+</ul>
+<p><strong>Prior knowledge</strong> reduces entropy:</p>
+<ul>
+<li>Narrows the hypothesis space</li>
+<li>Focuses on biologically plausible solutions</li>
+</ul>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example: biomarker discovery</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Without</strong> prior knowledge, search space includes <strong>all possible gene combinations</strong> (high entropy, expensive).</p>
+<p><strong>With</strong> prior knowledge, focus on <strong>pathways, interactions, or known gene sets</strong> (low entropy, faster convergence).</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 unnumbered smaller">
+<h2></h2>
+<p><strong>Mutual information</strong> <span class="math inline">\(I(X;Y)\)</span> measures shared information between <span class="math inline">\(X\)</span> (data) and <span class="math inline">\(Y\)</span> (prior knowledge).</p>
+<p>Higher <span class="math inline">\(I(X;Y)\)</span> → more effective integration of prior knowledge</p>
+<p>Mutual information can be expressed <span class="math display">\[
+I(X;K) = H(X) - H(X|K),
+\]</span> where</p>
+<ul>
+<li><span class="math inline">\(H(X)\)</span> is the entropy (uncertainty) of the data <span class="math inline">\(X\)</span></li>
+<li><span class="math inline">\(H(X|K)\)</span> is the conditional entropy of <span class="math inline">\(X\)</span> given prior knowledge <span class="math inline">\(K\)</span>.</li>
+</ul>
+<p>Reduction in entropy is equivalent to the mutual information: <span class="math inline">\(\Delta H = I(X;K).\)</span></p>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>The greater the mutual information <span class="math inline">\(I(X;K)\)</span>, the more effective the prior knowledge <span class="math inline">\(K\)</span> is in narrowing the hypothesis space.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Shannon, C.E. A Mathematical Theory of Communication. <em>Bell System Technical Journal</em> (1948). doi:<a href="https://doi.org/10.1002/j.1538-7305.1948.tb01338.x">10.1002/j.1538-7305.1948.tb01338.x</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+
+<img data-src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Entropy-mutual-information-relative-entropy-relation-diagram.svg" class="r-stretch quarto-figure-center"><p class="caption">Entropy <span class="math inline">\(H(\cdot)\)</span>, conditional entropy <span class="math inline">\(H(\cdot\mid\cdot)\)</span> and mutual information <span class="math inline">\(I(\cdot; \cdot)\)</span></p></section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example of entropy in biomarker discovery</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Without Prior Knowledge</strong>:</p>
+<ul>
+<li>Searching among <strong>10,000 genes</strong>.</li>
+<li>Entropy: <span class="math inline">\(H(X) = \log_2(10,000) \approx 13.29 \text{ bits.}\)</span></li>
+</ul>
+<p><strong>With Prior Knowledge</strong>:</p>
+<ul>
+<li>Prior knowledge narrows the search to <strong>100 candidate genes</strong>.</li>
+<li>Entropy: <span class="math inline">\(H(X|K) = \log_2(100) \approx 6.64 \text{ bits.}\)</span></li>
+</ul>
+<p><strong>Mutual Information</strong></p>
+<ul>
+<li>Reduction in entropy:<br>
+<span class="math inline">\(I(X;K) = H(X) - H(X|K) = 13.29 - 6.64 = 6.65 \text{ bits.}\)</span></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 unnumbered center">
+<h2></h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Lower entropy ≠ correctness</strong></p>
+</div>
+<div class="callout-content">
+<p>Prior knowledge (and data) can still be <strong>wrong/biassed</strong>!</p>
+<p>Then <em>smaller</em> hypothesis space → barking up the <em>wrong</em> tree.</p>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="3">
 <h1><span class="header-section-number">3</span> Multi-omics integration</h1>
 
 </section>
-<section id="section-5" class="slide level2 unnumbered" data-background-image="https://www.researchgate.net/publication/346929297/figure/fig1/AS:11431281241521883@1715131118932/The-complexity-of-multi-omics-merger-of-omics-driven-biology-data-science-informatics.tif" data-background-size="contain">
+<section class="slide level2 unnumbered" data-background-image="https://www.researchgate.net/publication/346929297/figure/fig1/AS:11431281241521883@1715131118932/The-complexity-of-multi-omics-merger-of-omics-driven-biology-data-science-informatics.tif" data-background-size="contain">
 <h2></h2>
 <div class="footer">
 <p>Krassowski at al.&nbsp;(2020). State of the Field in Multi-Omics Research. <em>Frontiers in Genetics.</em> doi:<a href="https://doi.org/10.3389/fgene.2020.610798">10.3389/fgene.2020.610798</a></p>
 </div>
 </section>
-<section id="single-omics" class="slide level2" data-number="3.1">
-<h2><span class="header-section-number">3.1</span> Single-omics</h2>
-<p>Classical techniques</p>
-<p>Regularized regression</p>
-<p>Batch effect correction</p>
+<section class="slide level2">
+<h2>Single-omics methods</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 56%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>Tools</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><iconify-icon role="img" inline="" icon="twemoji:bar-chart" aria-label="Icon bar-chart from twemoji Iconify.design set." title="Icon bar-chart from twemoji Iconify.design set."></iconify-icon> Differential expression analysis</td>
+<td>DESeq2, edgeR, limma</td>
+</tr>
+<tr class="even">
+<td><iconify-icon role="img" inline="" icon="vaadin:cluster" aria-label="Icon cluster from vaadin Iconify.design set." title="Icon cluster from vaadin Iconify.design set."></iconify-icon> Clustering samples/features</td>
+<td><span class="math inline">\(k\)</span>-means, hierarchical clustering, <span class="math inline">\(t\)</span>-SNE, UMAP</td>
+</tr>
+<tr class="odd">
+<td><iconify-icon role="img" inline="" icon="twemoji:dna" aria-label="Icon dna from twemoji Iconify.design set." title="Icon dna from twemoji Iconify.design set."></iconify-icon> Pathway enrichment analysis</td>
+<td>GSEA, Reactome</td>
+</tr>
+<tr class="even">
+<td><iconify-icon role="img" inline="" icon="twemoji:chart-increasing" aria-label="Icon chart-increasing from twemoji Iconify.design set." title="Icon chart-increasing from twemoji Iconify.design set."></iconify-icon> Predictive modelling</td>
+<td>GLMs, random forests, SVM, XGBoost, NNs</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="multi-omics-datasets" class="slide level2" data-number="3.2">
-<h2><span class="header-section-number">3.2</span> Multi-omics datasets</h2>
+<section class="slide level2 smaller">
+<h2>Single-omics challenges</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 40%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Challenge</th>
+<th>Methods</th>
+<th>Tools/Packages</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p \gg n\)</span></td>
+<td>Dimensionality reduction</td>
+<td>PCA, t-SNE, UMAP, LASSO, ElasticNet</td>
+</tr>
+<tr class="even">
+<td>Batch effects</td>
+<td>Batch effect correction</td>
+<td>ComBat (sva), limma, Harmony</td>
+</tr>
+<tr class="odd">
+<td>Missing data</td>
+<td>Imputation</td>
+<td>MICE, KNN imputation, MissForest</td>
+</tr>
+</tbody>
+</table>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p>Single-omics data is <strong>tabular</strong>, for which <strong>tree-based models</strong> (e.g.&nbsp;random forests) can outperform deep learning.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Grinszjtajn et al.&nbsp;<a href="https://proceedings.neurips.cc/paper_files/paper/2022/hash/0378c7692da36807bdec87ab043cdadc-Abstract-Datasets_and_Benchmarks.html">Why do tree-based models still outperform deep learning on typical tabular data?</a> <em>NeurIPS.</em> (2022)</p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Multi-omics data bring extra challenges</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Integration</strong> of different data types</li>
+<li><strong>Interpretation</strong> of complex interactions</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+<h2>Multi-omics datasets</h2>
 <div class="columns">
 <div class="column">
 <p><img data-src="images/multiomics.png"></p>
@@ -680,16 +888,80 @@ Data Science &amp; its Applications<br>
 </ul>
 </div></div>
 </section>
-<section id="multimodal-fusion" class="slide level2 smaller" data-number="3.3">
-<h2><span class="header-section-number">3.3</span> Multimodal fusion</h2>
+<section class="slide level2">
+<h2>Why deep learning?</h2>
+<p>Why not just use classical methods?</p>
+<h3>Classical approaches</h3>
+<dl>
+<dt>Multi-omics factor analysis (MOFA)</dt>
+<dd>
+<p>Unsupervised, generalization of PCA</p>
+</dd>
+<dt>Canonical correlation analysis (CCA)</dt>
+<dd>
+<p>Find linear combinations of features that are maximally correlated</p>
+</dd>
+<dt>Grouped LASSO</dt>
+<dd>
+<p>(Linearly) penalize groups of features together</p>
+</dd>
+</dl>
+</section>
+<section class="slide level2">
+<h2>Why deep learning?</h2>
+<p>Why not just use classical methods? Isn’t it tabular data?</p>
+<div>
+<ul>
+<li class="fragment"><strong>Non-linear</strong> relationships</li>
+<li class="fragment"><strong>Interactions</strong> between features</li>
+<li class="fragment"><strong>Representation learning</strong> from raw data</li>
+<li class="fragment"><strong>End-to-end</strong> learning</li>
+</ul>
+</div>
+<div class="fragment">
+<div class="cell" data-reveal="true" data-layout-align="default">
+<div class="cell-output-display">
+<div id="classical-vs-dl-pipeline">
+<div>
+<pre class="mermaid mermaid-js" data-label="classical-vs-dl-pipeline">flowchart LR
+    A[Feature Selection] --&gt; B[Modelling]
+    B --&gt; C[Pathway Enrichment]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="footer">
+<p>Park et al.&nbsp;Sparse overlapping group lasso for integrative multi-omics analysis. <em>J Comput Biol.</em> (2015) doi:<a href="https://doi.org/10.1089/cmb.2014.0197">10.1089/cmb.2014.0197</a></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Deep learning architectures</h2>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Question</strong></p>
+</div>
+<div class="callout-content">
+<p>Which neural network architectures are suitable for omics?</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>Multimodal fusion</h2>
 <p>When should we combine omics layers?</p>
 
 <img data-src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/f809/8829812/7f899d7be8ff/gr2.jpg" class="r-stretch"><div class="footer">
 <p>Cai, Poulos, Liu &amp; Zhong. Machine learning for multi-omics data integration in cancer. <em>iScience.</em> (2022). doi:<a href="https://doi.org/10.1016/j.isci.2022.103798">10.1016/j.isci.2022.103798</a></p>
 </div>
 </section>
-<section id="multimodal-fusion-1" class="slide level2" data-number="3.4">
-<h2><span class="header-section-number">3.4</span> Multimodal fusion</h2>
+<section class="slide level2">
+<h2>Multimodal fusion</h2>
 <p>When should we combine omics layers?</p>
 <dl>
 <dt>Early</dt>
@@ -709,8 +981,8 @@ Data Science &amp; its Applications<br>
 <p>*Hauptmann, T., Kramer, S. A fair experimental comparison of neural network architectures for latent representations of multi-omics for drug response prediction.&nbsp;<em>BMC Bioinformatics</em>&nbsp;24, 45 (2023). doi:<a href="https://doi.org/10.1186/s12859-023-05166-7">10.1186/s12859-023-05166-7</a></p>
 </div>
 </section>
-<section id="late-fusion-moli" class="slide level2" data-number="3.5">
-<h2><span class="header-section-number">3.5</span> Late fusion (MOLI)</h2>
+<section class="slide level2">
+<h2>Late fusion (MOLI)</h2>
 
 <img data-src="https://cdn.ncbi.nlm.nih.gov/pmc/blobs/3f5e/6612815/2f27faef728d/btz318f1.jpg" class="r-stretch"><div class="footer">
 <p>Sharifi-Noghabi et al.&nbsp;<em>Bioinformatics</em>. 2019. doi: <a href="https://doi.org/10.1093/bioinformatics/btz318">10.1093/bioinformatics/btz318</a></p>
@@ -729,12 +1001,19 @@ Data Science &amp; its Applications<br>
           display:block!important;
       }</style></aside>
 </section>
-<section id="model-explanations" class="slide level2" data-number="3.6">
-<h2><span class="header-section-number">3.6</span> Model explanations</h2>
+<section class="slide level2">
+<h2>Graph neural networks (GNNs)</h2>
 
-<img data-src="images/nn.png" class="r-stretch quarto-figure-center"><p class="caption">Can we call hidden nodes ‘biomarkers’?</p></section>
-<section id="model-explanations-1" class="slide level2" data-number="3.7">
-<h2><span class="header-section-number">3.7</span> Model explanations</h2>
+<img data-src="https://www.mdpi.com/ijms/ijms-25-02788/article_deploy/html/images/ijms-25-02788-g001.png" class="r-stretch quarto-figure-center"><p class="caption">MOGAT</p><div class="footer">
+<p>Tanvir et al.&nbsp;MOGAT. <em>International Journal of Molecular Sciences</em>, (2024). doi:<a href="https://doi.org/10.3390/ijms25052788">10.3390/ijms25052788</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Model explanations</h2>
+
+<img data-src="images/nn.png" class="r-stretch quarto-figure-center"><p class="caption">Can we call hidden nodes in neural networks ‘biomarkers’?</p></section>
+<section class="slide level2">
+<h2>Model explanations</h2>
 <p>Input-level explanations:</p>
 <ul>
 <li><span class="math inline">\(p\)</span>-values, features importance</li>
@@ -745,8 +1024,8 @@ Data Science &amp; its Applications<br>
 <p>→ <em>post-hoc</em> gene-set enrichment analysis (GSEA) or “pathway analysis”</p>
 <p><img data-src="https://reactome.org/templates/favourite/images/logo/logo.png"> &nbsp; <!--![](https://upload.wikimedia.org/wikipedia/en/8/80/KEGG_database_logo.gif)--></p>
 </section>
-<section id="gene-set-enrichment-analysis" class="slide level2 smaller" data-number="3.8">
-<h2><span class="header-section-number">3.8</span> Gene set enrichment analysis</h2>
+<section class="slide level2 smaller">
+<h2>Gene set enrichment analysis</h2>
 <ol type="1">
 <li><p>Set of genes <span class="math inline">\(G = \{g_1, g_2, \dots, g_N\}\)</span>. Order by ranking metric <span class="math inline">\(S(g_i)\)</span> (e.g.&nbsp;<em>t</em>-statistic)</p></li>
 <li><p>Compute <strong>enrichment score</strong> using running sum statistics, or <strong>overrepresentation score</strong> with hypergeometric test: <span class="math display">\[
@@ -756,67 +1035,136 @@ p = \sum_{i=x}^{\min(M, K)} P(X = i).
 \]</span></p></li>
 </ol>
 </section>
-<section id="multi-omics-integration-1" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out" data-number="3.9">
-<h2 data-id="quarto-animate-title"><span class="header-section-number">3.9</span> Multi-omics integration</h2>
-<div data-id="box3" style="background: #e83e8c; width: 150px; height: 150px; border-radius: 200px;">
+<section class="slide level2">
+<h2>What is a pathway (gene set)?</h2>
 
+<img data-src="https://reactome.org/images/baac009f1.jpeg" class="r-stretch quarto-figure-center"><p class="caption">Reactome pathways</p><p>A pathway is a set of genes that are known to interact in a biological process.</p>
+<div class="footer">
+<p><a href="https://reactome.org/" class="uri">https://reactome.org/</a></p>
 </div>
 </section>
-<section id="multi-omics-integration-2" class="slide level2" data-auto-animate="true" data-auto-animate-easing="ease-in-out" data-number="3.10">
-<h2 data-id="quarto-animate-title"><span class="header-section-number">3.10</span> Multi-omics integration</h2>
+<section class="slide level2">
+<h2>Pathway databases</h2>
+<div class="columns">
+<div class="column">
+<p><img data-src="https://reactome.org/templates/favourite/images/logo/logo.png"></p>
+</div><div class="column">
+<p><img data-src="https://upload.wikimedia.org/wikipedia/en/8/80/KEGG_database_logo.gif"></p>
+</div></div>
+<p><img data-src="https://geneontology.org/assets/go-logo.png"></p>
+</section>
+<section class="slide level2 centered">
+<h2></h2>
+<section class="callout-info">
+<h3>Pathway enrichment analysis</h3>
+<p>What are the disadvantages of using <em>post-hoc</em> GSEA or GSOA?</p>
+</section>
 </section></section>
 <section>
-<section id="visible-neural-networks" class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="4">
+<section class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="4">
 <h1><span class="header-section-number">4</span> Visible neural networks</h1>
 
 </section>
-<section id="feedforward-neural-network" class="slide level2" data-number="4.1">
-<h2><span class="header-section-number">4.1</span> Feedforward neural network</h2>
+<section class="slide level2">
+<h2>Feedforward neural network</h2>
 
-<img data-src="images/nn.png" class="r-stretch"><p><iconify-icon role="img" inline="" icon="twemoji:magnifying-glass" aria-label="Icon magnifying-glass from twemoji Iconify.design set." title="Icon magnifying-glass from twemoji Iconify.design set."></iconify-icon> Where are the biomarkers?</p>
-</section>
-<section id="visible-neural-network-vnn" class="slide level2" data-number="4.2">
-<h2><span class="header-section-number">4.2</span> Visible neural network (VNN)</h2>
+<img data-src="images/nn.png" class="r-stretch quarto-figure-center"><p class="caption"><iconify-icon role="img" inline="" icon="twemoji:magnifying-glass-tilted-left" aria-label="Icon magnifying-glass-tilted-left from twemoji Iconify.design set." title="Icon magnifying-glass-tilted-left from twemoji Iconify.design set."></iconify-icon> Where are the biomarkers?</p></section>
+<section class="slide level2">
+<h2>Visible neural network (VNN)</h2>
 
 <img data-src="https://ars.els-cdn.com/content/image/1-s2.0-S0092867418307190-gr2_lrg.jpg" class="r-stretch quarto-figure-center"><p class="caption">DCell</p><div class="footer">
 <p>Yu et al.&nbsp;Visible Machine Learning for Biomedicine. <em>Cell</em> (2018) doi:<a href="https://doi.org/10.1016/j.cell.2018.05.056">10.1016/j.cell.2018.05.056</a></p>
 </div>
 </section>
-<section id="knowledge-primed-neural-network" class="slide level2" data-number="4.3">
-<h2><span class="header-section-number">4.3</span> Knowledge-primed neural network</h2>
+<section class="slide level2">
+<h2>Knowledge-primed neural network</h2>
 
 <img data-src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs13059-020-02100-5/MediaObjects/13059_2020_2100_Fig1_HTML.png" class="r-stretch"><div class="footer">
 <p>Fortelny &amp; Bock. Knowledge-primed neural networks. <em>Genome Biology</em> (2020). doi:<a href="https://doi.org/10.1186/s13059-020-02100-5">10.1186/s13059-020-02100-5</a></p>
 </div>
 </section>
-<section id="biologically-informed-neural-network-binn" class="slide level2" data-number="4.4">
-<h2><span class="header-section-number">4.4</span> Biologically informed neural network (BINN)</h2>
+<section class="slide level2">
+<h2>Biologically informed neural network (BINN)</h2>
 
 <img data-src="https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41586-021-03922-4/MediaObjects/41586_2021_3922_Fig1_HTML.png" class="r-stretch quarto-figure-center"><p class="caption">P-Net</p><div class="footer">
 <p>Elmarakeby et al.&nbsp;Biologically informed deep neural network for prostate cancer discovery. <em>Nature</em>, (2021). doi:<a href="https://doi.org/10.1038/s41586-021-03922-4">10.1038/s41586-021-03922-4</a></p>
 </div>
 </section>
-<section id="vae-enhanced-by-gene-annotations-vega" class="slide level2" data-number="4.5">
-<h2><span class="header-section-number">4.5</span> VAE enhanced by gene annotations (VEGA)</h2>
+<section class="slide level2">
+<h2>VAE enhanced by gene annotations (VEGA)</h2>
 
 <img data-src="https://vega-documentation.readthedocs.io/en/latest/_images/vega.png" class="r-stretch quarto-figure-center"><p class="caption">VEGA</p><div class="footer">
 <p>Seninge, et al.&nbsp;VEGA. <em>Nature Communications</em> (2021). doi:<a href="https://doi.org/10.1038/s41467-021-26017-0">10.1038/s41467-021-26017-0)</a></p>
 </div>
 </section>
-<section id="anatomy-of-a-binnvnn" class="slide level2" data-number="4.6">
-<h2><span class="header-section-number">4.6</span> Anatomy of a BINN/VNN</h2>
+<section class="slide level2">
+<h2>Anatomy of a BINN/VNN</h2>
 
 <img data-src="images/binn_natrevgen.png" style="width:80.0%" class="r-stretch"><div class="footer">
-<p>Selby, D.A. et al.&nbsp;<em>Nat Rev Genet</em> (2025). doi:<a href="https://doi.org/10.1038/s41576-025-00826-1">10.1038/s41576-025-00826-1</a></p>
+<p>Selby, D.A. et al.&nbsp;<em>Nature Reviews Genetics</em> (2025). doi:<a href="https://doi.org/10.1038/s41576-025-00826-1">10.1038/s41576-025-00826-1</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>How to build a VNN</h2>
+<ol type="1">
+<li>Start with dense sequential neural network</li>
+<li>Use adjacency matrix of inputs → pathways as a <strong>masking matrix</strong></li>
+<li>(Optional) for next layer, mask = mapping of pathways → higher pathways</li>
+<li>Omit all masked weights from backpropagation</li>
+</ol>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>What if the pathways aren’t all the same depth?</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+<h2>Pathway discovery with BINNs</h2>
+
+<img data-src="https://media.springernature.com/full/springer-static/image/art%3A10.1186%2Fs12859-023-05535-2/MediaObjects/12859_2023_5535_Fig1_HTML.png" class="r-stretch quarto-figure-center"><p class="caption">PathExpSurv</p><div class="footer">
+<p>Hou et al.&nbsp;PathExpSurv. <em>BMC Bioinformatics</em>, (2023). doi:<a href="https://doi.org/10.1186/s12859-023-05535-2">10.1186/s12859-023-05535-2</a></p>
+</div>
+</section>
+<section class="slide level2">
+<h2>Interpretable AutoML discovery</h2>
+<div class="columns">
+<div class="column">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Open question</strong></p>
+</div>
+<div class="callout-content">
+<p>If (1) VNNs perform better, and (2) Pathway DBs are incomplete; then</p>
+<p><strong>Can neural architecture search over VNNs discover new pathways?</strong></p>
+</div>
+</div>
+</div>
+</div><div class="column">
+<p><img data-src="https://towardsdatascience.com/wp-content/uploads/2020/09/1nicFUkeUpWMW1w_hUVtZiw.png"></p>
+</div></div>
+<div class="footer">
+<p>Han et al.&nbsp;(2015). arXiv:<a href="https://arxiv.org/abs/1506.02626v3">1506.02626v3</a></p>
 </div>
 </section></section>
 <section>
-<section id="hands-on" class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="5">
+<section class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="5">
 <h1><span class="header-section-number">5</span> Hands-on</h1>
 
 </section>
-<section id="accessible-tools-for-binns" class="slide level2 smaller" data-number="5.1">
-<h2><span class="header-section-number">5.1</span> Accessible tools for BINNs</h2>
+<section class="slide level2 smaller">
+<h2>Accessible tools for BINNs</h2>
 <p>…would be a very good idea</p>
 <div class="fragment">
 <div>
@@ -824,25 +1172,24 @@ p = \sum_{i=x}^{\min(M, K)} P(X = i).
 </div>
 <div class="columns quarto-layout-panel" data-layout="[0.5, -0.05, 0.5]">
 <div class="quarto-layout-row">
-<section id="binn" class=".column quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
+<div class="column quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
 <h3><a href="https://github.com/InfectionMedicineProteomics/BINN">BINN</a></h3>
 <ul>
 <li><code>pip install binn</code></li>
-<li>classification, regression</li>
+<li>supervised learning</li>
 <li>proteomics or single-omics</li>
 <li>omics data: as <code>pandas</code> or csv</li>
 <li>pathways: ‘Reactome’ or own csv (<code>parent,child</code>)</li>
 </ul>
-</section>
-<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.8%;justify-content: flex-start;">
+</div><div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 4.8%;justify-content: flex-start;">
 <p>&nbsp;</p>
 </div>
 <div class="column quarto-layout-cell" style="flex-basis: 47.6%;justify-content: flex-start;">
-<h3 id="vega"><a href="https://github.com/LucasESBS/vega">VEGA</a></h3>
+<h3><a href="https://github.com/LucasESBS/vega">VEGA</a></h3>
 <ul>
 <li><code>pip install scvega</code></li>
 <li>unsupervised learning</li>
-<li>scRNA-seq</li>
+<li>transcriptomics</li>
 <li>omics data: as Anndata</li>
 <li>pathways: GMT from <a href="https://www.gsea-msigdb.org/gsea/index.jsp">MSigDB</a></li>
 </ul>
@@ -850,85 +1197,178 @@ p = \sum_{i=x}^{\min(M, K)} P(X = i).
 </div>
 </div>
 <div class="fragment">
-<p>…and various other repos you can <code>git clone</code>.</p>
+<p>…and various other paper repos you can <code>git clone</code>.</p>
 </div>
 <div class="fragment">
 <p>Nothing for R… <a href="https://torch.mlverse.org/">yet</a>!</p>
 </div>
 </section>
-<section id="the-binn-package---installation" class="slide level2 smaller" data-number="5.2">
-<h2><span class="header-section-number">5.2</span> The binn package - installation</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="ex">pip</span> install binn==0.1.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout-info">
-<p><a href="https://infectionmedicineproteomics.github.io/BINN/" class="uri">https://infectionmedicineproteomics.github.io/BINN/</a></p>
+<section class="slide level2 center">
+<h2></h2>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>What’s missing?</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>multi-omics</li>
+<li>integration with clinical data</li>
+<li>survival analysis (censored time-to-event)</li>
+<li>R + BioConductor</li>
+</ul>
+</div>
+</div>
 </div>
 </section>
-<section id="the-binn-package---inputs" class="slide level2 smaller" data-number="5.3">
-<h2><span class="header-section-number">5.3</span> The binn package - inputs</h2>
+<section class="slide level2">
+<h2>The <code>binn</code> package</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Installation</strong></p>
+</div>
+<div class="callout-content">
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href=""></a><span class="ex">pip</span> install binn==0.1.1         <span class="co"># 0.1.0 has a bug</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Usage</strong></p>
+</div>
+<div class="callout-content">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">from</span> binn <span class="im">import</span> BINN</span>
+<span id="cb2-2"><a href=""></a>binn <span class="op">=</span> BINN(</span>
+<span id="cb2-3"><a href=""></a>    data_matrix<span class="op">=</span>input_data,</span>
+<span id="cb2-4"><a href=""></a>    network_source<span class="op">=</span><span class="st">"reactome"</span>,</span>
+<span id="cb2-5"><a href=""></a>    input_source<span class="op">=</span><span class="st">"uniprot"</span>,</span>
+<span id="cb2-6"><a href=""></a>    n_layers<span class="op">=</span><span class="dv">4</span>,</span>
+<span id="cb2-7"><a href=""></a>    dropout<span class="op">=</span><span class="fl">0.2</span></span>
+<span id="cb2-8"><a href=""></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Documentation</strong></p>
+</div>
+<div class="callout-content">
+<p><a href="https://infectionmedicineproteomics.github.io/BINN/" class="uri">https://infectionmedicineproteomics.github.io/BINN/</a></p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 smaller">
+<h2>The binn package - inputs</h2>
 <p>What’s required:</p>
-<div class="columns">
-<div class="column">
-<h3 id="data_matrix"><code>data_matrix</code></h3>
+<div>
+
+</div>
+<div class="columns quarto-layout-panel" data-layout="[0.3, -0.05, 0.3, -0.05, 0.3]">
+<div class="quarto-layout-row">
+<div class="column quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
+<p><strong><code>data_matrix</code></strong></p>
 <ul>
-<li>matrix (<span class="math inline">\(n \times p\)</span>) of omics data</li>
+<li><span class="math inline">\(n \times p\)</span> matrix of omics data</li>
 </ul>
-</div><div class="column">
-<h3 id="mapping-pathways"><code>mapping</code>, <code>pathways</code></h3>
-<ol type="1">
-<li>2 column matrix: (feature, pathway)</li>
-<li>2 column matrix: (parent, child)</li>
-</ol>
-<p><span style="font-size: small;">Or set <code>use_reactome=True</code></span></p>
-</div><div class="column">
-<h3 id="design_matrix"><code>design_matrix</code></h3>
+<p><strong><code>mapping</code></strong></p>
+<ul>
+<li><span class="math inline">\(p \times 2\)</span> 2 column matrix of features to pathways</li>
+<li>or <code>'uniprot'</code></li>
+</ul>
+</div><div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 5.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="column quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
+<p><strong><code>pathways</code></strong></p>
+<ul>
+<li><span class="math inline">\(? \times 2\)</span> matrix: parent → child pathway</li>
+<li>or <code>'reactome'</code></li>
+</ul>
+</div><div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 5.0%;justify-content: flex-start;">
+<p>&nbsp;</p>
+</div>
+<div class="column quarto-layout-cell" style="flex-basis: 30.0%;justify-content: flex-start;">
+<p><strong><code>design_matrix</code></strong></p>
 <ul>
 <li>matrix <span class="math inline">\(n \times 2\)</span> of targets <code>sample,group</code></li>
+<li><code>group</code> = output class</li>
 </ul>
-<p><span style="font-size: small;">e.g.&nbsp;binary classification, group <span class="math inline">\(\in \{1,2\}\)</span></span></p>
 </div></div>
+</div>
 <div class="footer">
 <p><a href="https://infectionmedicineproteomics.github.io/BINN/" class="uri">https://infectionmedicineproteomics.github.io/BINN/</a></p>
 </div>
 </section>
-<section id="the-binn-package---visualization" class="slide level2" data-number="5.4">
-<h2><span class="header-section-number">5.4</span> The <code>binn</code> package - visualization</h2>
+<section class="slide level2">
+<h2>The <code>binn</code> package - visualization</h2>
 
 <img data-src="https://infectionmedicineproteomics.github.io/BINN/img/interpreted_binn.png" class="r-stretch quarto-figure-center"><p class="caption">Node importance plot</p><div class="footer">
 <p><a href="https://infectionmedicineproteomics.github.io/BINN/" class="uri">https://infectionmedicineproteomics.github.io/BINN/</a></p>
 </div>
 </section>
-<section id="worksheet" class="slide level2" data-number="5.5">
-<h2><span class="header-section-number">5.5</span> Worksheet</h2>
+<section class="slide level2">
+<h2>Worksheet</h2>
 
-<img data-src="images/qr_code.png" class="r-stretch"><p>Colab notebook and slides: <a href="https://github.com/datasciapps/trifels2025">github.com/datasciapps/trifels2025</a></p>
+<img data-src="images/qr_code.png" class="quarto-figure quarto-figure-center r-stretch"><p>Colab notebook and slides: <a href="https://github.com/datasciapps/trifels2025">github.com/datasciapps/trifels2025</a></p>
 </section></section>
 <section>
-<section id="discussion" class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="6">
+<section class="title-slide slide level1 smaller center" data-background-image="images/burg_trifels2.jpg" data-background-size="cover" data-background-color="black" data-background-opacity="0.5" data-number="6">
 <h1><span class="header-section-number">6</span> Discussion</h1>
 
 </section>
-<section id="challenges-future-directions" class="slide level2 smaller" data-number="6.1">
-<h2><span class="header-section-number">6.1</span> Challenges &amp; Future Directions</h2>
-<h3 id="limitations">Limitations</h3>
+<section class="slide level2 smaller">
+<h2>Challenges</h2>
 <ul>
-<li>Residual uncertainty in integrating diverse modalities</li>
-<li>Interpretability challenges in highly complex models</li>
-<li>Potential biases in available biological knowledge bases</li>
-</ul>
-<h3 id="future-directions">Future directions</h3>
+<li><strong>Lack of Robust Tools</strong>: Few standardized frameworks, poor interpretability and limited benchmarks.</li>
+<li><strong>Alternative Models</strong>:
 <ul>
-<li>Integration of causal inference techniques</li>
-<li>Dynamic updating of knowledge graphs as new data emerges</li>
-<li>Scaling to larger, more diverse cohorts to validate reproducibility</li>
-</ul>
-<h3 id="open-questions">Open questions</h3>
-<ul>
-<li>How to balance model complexity with biological interpretability?</li>
-<li>What standards ensure FAIRness in rapidly evolving multi-omics workflows?</li>
+<li><strong>Classical methods</strong>: faster, more interpretable, statistically robust</li>
+<li><strong>GNNs</strong>: Better structural representation but need high-quality pathway graphs.<br>
+</li>
+<li><strong>Transformers/LLMs</strong>: Strong sequence modeling but lack explicit pathway structure.<br>
+</li>
+<li><strong>Hybrid Approaches</strong>: Combining VNNs with GNNs or transformers may improve learning.<br>
+</li>
+</ul></li>
+<li><strong>Pathway Databases Are Incomplete</strong>: KEGG, Reactome, and GO suffer from curation bias, lack context specificity, and may be outdated.</li>
 </ul>
 </section>
-<section id="things-we-didnt-cover-today" class="slide level2" data-number="6.2">
-<h2><span class="header-section-number">6.2</span> Things we didn’t cover today</h2>
+<section class="slide level2 smaller">
+<h2>Open questions</h2>
+<h3>Biological fidelity</h3>
+<ul>
+<li>Is a BINN really a digital twin of a cell?</li>
+<li>Biological sparsity or just noisy sparsity?</li>
+</ul>
+<h3>Model validation</h3>
+<ul>
+<li>Synthetic and experimental data for validation</li>
+<li>Uncertainty-aware architectures to quantify confidence in biological predictions.</li>
+</ul>
+<h3>Performance vs interpretability</h3>
+<ul>
+<li>Mechanistic insight vs.&nbsp;predictive accuracy: which should take priority?</li>
+<li>Do black-box models merely reinforce existing biases in pathway databases?</li>
+</ul>
+</section>
+<section class="slide level2">
+<h2>Things we didn’t cover today</h2>
 <ul>
 <li>Causal inference</li>
 <li>Dynamic updating of knowledge graphs</li>
@@ -936,7 +1376,7 @@ p = \sum_{i=x}^{\min(M, K)} P(X = i).
 <li>GenAI: LLM agents &amp; retrieval-augmented generation</li>
 </ul>
 </section></section>
-<section id="thank-you" class="title-slide slide level1 unlisted unnumbered center">
+<section class="title-slide slide level1 unlisted unnumbered center">
 <h1>Thank you!</h1>
 <div class="columns">
 <div class="column" style="width:70%;">
@@ -955,22 +1395,12 @@ p = \sum_{i=x}^{\min(M, K)} P(X = i).
 <p><strong>Further reading</strong></p>
 </div>
 <div class="callout-content">
-<p>Selby, D.A. et al.&nbsp;Beyond the black box with biologically informed neural networks. <em>Nat Rev Genet</em> (2025). doi:<a href="https://doi.org/10.1038/s41576-025-00826-1">10.1038/s41576-025-00826-1</a></p>
+<p>Selby, D.A. et al.&nbsp;Beyond the black box with biologically informed neural networks. <em>Nature Reviews Genetics</em> (2025). doi:<a href="https://doi.org/10.1038/s41576-025-00826-1">10.1038/s41576-025-00826-1</a></p>
 </div>
 </div>
 </div>
-<div class="callout callout-tip callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Tip</strong></p>
-</div>
-<div class="callout-content">
+<div class="footer">
 <p>To export these slides, hit <code>E</code> and then <em>Print to PDF</em>.</p>
-</div>
-</div>
 </div>
 <div class="quarto-auto-generated-content">
 <p><img src="images/dfki_black.png" class="slide-logo"></p>
