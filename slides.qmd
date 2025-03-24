@@ -48,7 +48,7 @@ engine: knitr
 
 ## David Selby {.unnumbered}
 
-::::: columns
+:::: columns
 ::: column
 ![](images/david.jpg)
 
@@ -60,7 +60,7 @@ Data Science & its Applications\
 ::: column
 ![](images/dfki_logo_full.png) ![](images/rptu_logo.png)
 :::
-:::::
+::::
 
 ##  {.unnumbered background-image="images/annweiler.jpg" background-size="cover" background-color="black"}
 
@@ -572,6 +572,7 @@ Seninge, et al. VEGA. *Nature Communications* (2021). doi:[10.1038/s41467-021-26
 ![](images/binn_natrevgen.png){width="80%"}
 
 ::: footer
+Selby, D.A. et al. *Nature Reviews Genetics* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
 Selby, D.A. et al. *Nature Reviews Genetics* (2025). doi:[10.1038/s41576-025-00826-1](https://doi.org/10.1038/s41576-025-00826-1)
 :::
 
