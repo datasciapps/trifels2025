@@ -48,7 +48,7 @@ engine: knitr
 
 ## David Selby {.unnumbered}
 
-:::: columns
+::::: columns
 ::: column
 ![](images/david.jpg)
 
@@ -60,7 +60,7 @@ Data Science & its Applications\
 ::: column
 ![](images/dfki_logo_full.png) ![](images/rptu_logo.png)
 :::
-::::
+:::::
 
 ##  {.unnumbered background-image="images/annweiler.jpg" background-size="cover" background-color="black"}
 
@@ -326,7 +326,7 @@ Krassowski at al. (2020). State of the Field in Multi-Omics Research. *Frontiers
 ## Single-omics challenges {.smaller}
 
 | Challenge     | Methods                  | Tools/Packages                      |
-|------------------|-----------------------------|-------------------------|
+|-------------------|-----------------------------|-------------------------|
 | $p \gg n$     | Dimensionality reduction | PCA, t-SNE, UMAP, LASSO, ElasticNet |
 | Batch effects | Batch effect correction  | ComBat (sva), limma, Harmony        |
 | Missing data  | Imputation               | MICE, KNN imputation, MissForest    |
@@ -584,6 +584,18 @@ Selby, D.A. et al. *Nature Reviews Genetics* (2025). doi:[10.1038/s41576-025-008
 
 ::: callout-warning
 What if the pathways aren't all the same depth?
+:::
+
+## Knowledge graph approach
+
+![GLUE architecture](https://media.springernature.com/full/springer-static/image/art%3A10.1038%2Fs41587-022-01284-4/MediaObjects/41587_2022_1284_Fig1_HTML.png)
+
+::: footer
+Cao & Gao. Multi-omics single-cell data integration and regulatory inference with graph-linked embedding. *Nature Biotech.* (2022). doi:[10.1038/s41587-022-01284-4](https://doi.org/10.1038/s41587-022-01284-4)
+:::
+
+::: notes
+Is this interpretable?
 :::
 
 ## Pathway discovery with BINNs
